@@ -42,9 +42,9 @@ PrepareOakSpeech:
 OakSpeech:
 	ld a, SFX_STOP_ALL_MUSIC
 	call PlaySound
-	ld a, BANK(Music_Routes2)
+	ld a, BANK(Music_CinnabarMansion)
 	ld c, a
-	ld a, MUSIC_ROUTES2
+	ld a, MUSIC_CINNABAR_MANSION
 	call PlayMusic
 	call ClearScreen
 	call LoadTextBoxTilePatterns
@@ -73,51 +73,19 @@ OakSpeech:
 	ld a, [wd732]
 	bit BIT_DEBUG_MODE, a
 	jp nz, .skipSpeech
-	ld de, ProfOakPic
-	lb bc, BANK(ProfOakPic), $00
-	call IntroDisplayPicCenteredOrUpperRight
-	call FadeInIntroPic
-	ld hl, OakSpeechText1
-	call PrintText
-	call GBFadeOutToWhite
-	call ClearScreen
-	ld a, NIDORINO
+	ld a, DITTO
 	ld [wd0b5], a
 	ld [wcf91], a
 	call GetMonHeader
 	hlcoord 6, 4
 	call LoadFlippedFrontSpriteByMonIndex
-	call MovePicLeft
+	call GBFadeInFromWhite
+	ld hl, OakSpeechText1
+	call PrintText
 	ld hl, OakSpeechText2
 	call PrintText
-
 	jr .skipSpeech
-
-	call GBFadeOutToWhite
-	call ClearScreen
-	ld de, RedPicFront
-	lb bc, BANK(RedPicFront), $00
-	call IntroDisplayPicCenteredOrUpperRight
-	call MovePicLeft
-	ld hl, IntroducePlayerText
-	call PrintText
-	call ChoosePlayerName
-	call GBFadeOutToWhite
-	call ClearScreen
-	ld de, Rival1Pic
-	lb bc, BANK(Rival1Pic), $00
-	call IntroDisplayPicCenteredOrUpperRight
-	call FadeInIntroPic
-	ld hl, IntroduceRivalText
-	call PrintText
-	call ChooseRivalName
 .skipSpeech
-	call GBFadeOutToWhite
-	call ClearScreen
-	ld de, RedPicFront
-	lb bc, BANK(RedPicFront), $00
-	call IntroDisplayPicCenteredOrUpperRight
-	call GBFadeInFromWhite
 	ld a, [wd72d]
 	and a
 	jr nz, .next
@@ -177,8 +145,6 @@ OakSpeechText1:
 	text_end
 OakSpeechText2:
 	text_far _OakSpeechText2A
-	; BUG: The cry played does not match the sprite displayed.
-	sound_cry_nidorina
 	text_far _OakSpeechText2B
 	text_end
 IntroducePlayerText:

@@ -1694,34 +1694,38 @@ _LinkCanceledText::
 	done
 
 _OakSpeechText1::
-	text "Hello there!"
-	line "Welcome to the"
-	cont "world of #MON!"
-
-	para "My name is OAK!"
-	line "People call me"
-	cont "the #MON PROF!"
+	text "You are a stray"
+	line "DITTO from the"
+	cont "MEWTWO PROJECT"
+	cont "at the #MON"
+	cont "MANSION."
+	para "You ended up in"
+	line "PALLET after"
+	cont "an incident with"
+	cont "MEWTWO."
+	para "A kind local girl"
+	line "has taken you"
+	cont "in for shelter."
 	prompt
 
 _OakSpeechText2A::
-	text "This world is"
-	line "inhabited by"
-	cont "creatures called"
-	cont "#MON!@"
+	text "As a scientific"
+	line "experiment, you're"
+	cont "stronger than"
+	cont "other DITTO."
 	text_end
 
 _OakSpeechText2B::
-	text_start
+	text_start	
 
-	para "For some people,"
-	line "#MON are"
-	cont "pets. Others use"
-	cont "them for fights."
+	para "You can TRANSFORM"
+	line "into foe #MON"
+	cont "more efficiently."
 
-	para "Myself..."
-
-	para "I study #MON"
-	line "as a profession."
+	para "You can even"
+	line "turn into other"
+	cont "people to get"
+	cont "around obstacles!"
 	prompt
 
 _IntroducePlayerText::
