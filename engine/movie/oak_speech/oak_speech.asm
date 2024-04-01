@@ -50,6 +50,15 @@ OakSpeech:
 	call LoadTextBoxTilePatterns
 	call PrepareOakSpeech
 	predef InitPlayerData2
+
+
+	ld a, 5
+	ld [wCurEnemyLVL], a
+	ld a, DITTO
+	ld [wcf91], a
+	ld [wd11e], a
+	call AddPartyMon
+
 	ld hl, wNumBoxItems
 	ld a, POTION
 	ld [wcf91], a

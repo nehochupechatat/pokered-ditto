@@ -427,6 +427,9 @@ DisplayDepositWithdrawMenu:
 	and a
 	ret
 .choseDepositWithdraw
+ld a, [wcf91]
+	cp DITTO
+	jr z, .loop
 	scf
 	ret
 .viewStats
