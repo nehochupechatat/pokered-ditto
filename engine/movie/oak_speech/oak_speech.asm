@@ -145,7 +145,6 @@ OakSpeechText1:
 	text_end
 OakSpeechText2:
 	text_far _OakSpeechText2A
-	text_far _OakSpeechText2B
 	text_end
 IntroducePlayerText:
 	text_far _IntroducePlayerText
