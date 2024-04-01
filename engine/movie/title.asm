@@ -121,10 +121,10 @@ DisplayTitleScreen:
 	call EnableLCD
 
 IF DEF(_RED)
-	ld a, STARTER1 ; which Pokemon to show first on the title screen
+	ld a, DITTO ; which Pokemon to show first on the title screen
 ENDC
 IF DEF(_BLUE)
-	ld a, STARTER2 ; which Pokemon to show first on the title screen
+	ld a, DITTO ; which Pokemon to show first on the title screen
 ENDC
 	ld [wTitleMonSpecies], a
 	call LoadTitleMonSprite
@@ -225,12 +225,9 @@ ENDC
 	ld c, 200
 	call CheckForUserInterruption
 	jr c, .finishedWaiting
-	call TitleScreenScrollInMon
 	ld c, 1
 	call CheckForUserInterruption
 	jr c, .finishedWaiting
-	farcall TitleScreenAnimateBallIfStarterOut
-	call TitleScreenPickNewMon
 	jr .awaitUserInterruptionLoop
 
 .finishedWaiting
@@ -316,40 +313,6 @@ ScrollTitleScreenGameVersion:
 	ret
 
 DrawPlayerCharacter:
-	ld hl, PlayerCharacterTitleGraphics
-	ld de, vSprites
-	ld bc, PlayerCharacterTitleGraphicsEnd - PlayerCharacterTitleGraphics
-	ld a, BANK(PlayerCharacterTitleGraphics)
-	call FarCopyData2
-	call ClearSprites
-	xor a
-	ld [wPlayerCharacterOAMTile], a
-	ld hl, wShadowOAM
-	lb de, $60, $5a
-	ld b, 7
-.loop
-	push de
-	ld c, 5
-.innerLoop
-	ld a, d
-	ld [hli], a ; Y
-	ld a, e
-	ld [hli], a ; X
-	add 8
-	ld e, a
-	ld a, [wPlayerCharacterOAMTile]
-	ld [hli], a ; tile
-	inc a
-	ld [wPlayerCharacterOAMTile], a
-	inc hl
-	dec c
-	jr nz, .innerLoop
-	pop de
-	ld a, 8
-	add d
-	ld d, a
-	dec b
-	jr nz, .loop
 	ret
 
 ClearBothBGMaps:
@@ -361,7 +324,7 @@ ClearBothBGMaps:
 LoadTitleMonSprite:
 	ld [wcf91], a
 	ld [wd0b5], a
-	hlcoord 5, 10
+	hlcoord 7, 10
 	call GetMonHeader
 	jp LoadFrontSpriteByMonIndex
 
