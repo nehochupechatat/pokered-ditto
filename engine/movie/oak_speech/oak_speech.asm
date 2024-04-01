@@ -90,6 +90,9 @@ OakSpeech:
 	call MovePicLeft
 	ld hl, OakSpeechText2
 	call PrintText
+
+	jr .skipSpeech
+
 	call GBFadeOutToWhite
 	call ClearScreen
 	ld de, RedPicFront
