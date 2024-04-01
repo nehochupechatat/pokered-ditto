@@ -6,12 +6,14 @@ INCLUDE "data/battle/residual_effects_2.asm"
 INCLUDE "data/battle/always_happen_effects.asm"
 INCLUDE "data/battle/special_effects.asm"
 
+
+
 SlidePlayerAndEnemySilhouettesOnScreen:
 	call LoadPlayerBackPic
 	ld a, MESSAGE_BOX ; the usual text box at the bottom of the screen
 	ld [wTextBoxID], a
 	call DisplayTextBoxID
-	hlcoord 1, 5
+	hlcoord 0, 5
 	lb bc, 3, 7
 	call ClearScreenArea
 	call DisableLCD
@@ -234,7 +236,6 @@ StartBattle:
 	call LoadScreenTilesFromBuffer1
 	hlcoord 1, 5
 	ld a, $9
-	call SlideTrainerPicOffScreen
 	call SaveScreenTilesToBuffer1
 	ld a, [wWhichPokemon]
 	ld c, a
@@ -1782,6 +1783,7 @@ DittoBattleEntranceAnimation:
 	dec c
 	jr nz, .loop2
 	ld c, 2
+    ; call DelayFrames , animates the sending out
 	pop hl
 	pop bc
 	inc hl
