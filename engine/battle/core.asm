@@ -1756,9 +1756,9 @@ SendOutMon:
 	ld a, $1
 	ldh [hWhoseTurn], a
 	hlcoord 4, 11
+	call DittoBattleEntranceAnimation
 	ld a, $1
 	ldh [hAutoBGTransferEnabled], a
-	call DittoBattleEntranceAnimation
 	ld a, [wcf91]
 	call PrintEmptyString
 	jp SaveScreenTilesToBuffer1
@@ -1782,8 +1782,8 @@ DittoBattleEntranceAnimation:
 	ld d, a
 	dec c
 	jr nz, .loop2
-	ld c, 2
-    ; call DelayFrames , animates the sending out
+	ld c, 3
+    ;call DelayFrames, animates the sending out
 	pop hl
 	pop bc
 	inc hl
