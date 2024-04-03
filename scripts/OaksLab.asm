@@ -1174,14 +1174,6 @@ OaksLabRivalIllTakeYouOnText:
 	text_far _OaksLabRivalIllTakeYouOnText
 	text_end
 
-OaksLabRivalIPickedTheWrongPokemonText:
-	text_far _OaksLabRivalIPickedTheWrongPokemonText
-	text_end
-
-OaksLabRivalAmIGreatOrWhatText:
-	text_far _OaksLabRivalAmIGreatOrWhatText
-	text_end
-
 OaksLabRivalSmellYouLaterText:
 	text_asm
 	ld hl, .Text

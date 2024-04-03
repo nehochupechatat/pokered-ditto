@@ -257,18 +257,6 @@ _OaksLabRivalIllTakeYouOnText::
 	line "you on!"
 	done
 
-_OaksLabRivalIPickedTheWrongPokemonText::
-	text "WHAT?"
-	line "Unbelievable!"
-	cont "I picked the"
-	cont "wrong #MON!"
-	prompt
-
-_OaksLabRivalAmIGreatOrWhatText::
-	text "<RIVAL>: Yeah! Am"
-	line "I great or what?"
-	prompt
-
 _OaksLabRivalSmellYouLaterText::
 	text "<RIVAL>: Okay!"
 	line "I'll make my"

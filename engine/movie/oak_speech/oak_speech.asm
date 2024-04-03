@@ -59,6 +59,21 @@ OakSpeech:
 	ld [wd11e], a
 	call AddPartyMon
 
+	SetEvent EVENT_1ST_ROUTE22_RIVAL_BATTLE
+	ResetEventReuseHL EVENT_2ND_ROUTE22_RIVAL_BATTLE
+	SetEventReuseHL EVENT_ROUTE22_RIVAL_WANTS_BATTLE
+
+	ld a, HS_LYING_OLD_MAN
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	ld a, HS_OLD_MAN
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+
+	ld a, HS_ROUTE_22_RIVAL_1
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	
 	ld hl, wNumBoxItems
 	ld a, POTION
 	ld [wcf91], a

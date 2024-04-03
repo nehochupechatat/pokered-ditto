@@ -20,10 +20,10 @@ InitYesNoTextBoxParameters::
 
 YesNoChoicePokeCenter::
 	call SaveScreenTilesToBuffer1
-	ld a, HEAL_CANCEL_MENU
+	xor a
 	ld [wTwoOptionMenuID], a
-	hlcoord 11, 6
-	lb bc, 8, 12
+	hlcoord 14, 7
+	lb bc, 8, 15
 	jr DisplayYesNoChoice
 
 WideYesNoChoice:: ; unused

@@ -30,13 +30,11 @@ PalletTownDefaultScript:
 	ld [wPlayerMovingDirection], a
 	ld a, SFX_STOP_ALL_MUSIC
 	call PlaySound
-	ld a, BANK(Music_MeetProfOak)
-	ld c, a
-	ld a, MUSIC_MEET_PROF_OAK ; "oak appears" music
+	ld c, BANK(Music_MeetRival)
+	ld a, MUSIC_MEET_RIVAL
 	call PlayMusic
 	ld a, SELECT | START | D_RIGHT | D_LEFT | D_UP | D_DOWN
 	ld [wJoyIgnore], a
-	SetEvent EVENT_OAK_APPEARED_IN_PALLET
 
 	; trigger the next script
 	ld a, SCRIPT_PALLETTOWN_OAK_HEY_WAIT
@@ -46,9 +44,6 @@ PalletTownDefaultScript:
 PalletTownOakHeyWaitScript:
 	xor a
 	ld [wOakWalkedToPlayer], a
-	ld a, TEXT_PALLETTOWN_OAK
-	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
 	ld a, A_BUTTON | B_BUTTON | SELECT | START | D_RIGHT | D_LEFT | D_UP | D_DOWN
 	ld [wJoyIgnore], a
 	ld a, HS_PALLET_TOWN_OAK
@@ -98,14 +93,32 @@ PalletTownOakNotSafeComeWithMeScript:
 	ld [wSpritePlayerStateData1FacingDirection], a
 	ld a, TRUE
 	ld [wOakWalkedToPlayer], a
-	ld a, SELECT | START | D_RIGHT | D_LEFT | D_UP | D_DOWN
+	ld a, SELECT | START
 	ld [wJoyIgnore], a
 	ld a, TEXT_PALLETTOWN_OAK
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
+	
+; set up rival battle
+	ld a, [wd730]
+	bit 0, a
+	ret nz
+
+	; define which team rival uses, and fight it
+	ld a, OPP_RIVAL1
+	ld [wCurOpponent], a
+	ld a, [wRivalStarter]
+	ld a, $1
+.done
+	ld [wTrainerNo], a
+	ld a, OAKSLAB_RIVAL
+	ld [wSpriteIndex], a
+	call GetSpritePosition1
+	ld hl, OaksLabRivalIPickedTheWrongPokemonText
+	ld de, OaksLabRivalAmIGreatOrWhatText
+	call SaveEndBattleTextPointers
+	
 ; set up movement script that causes the player to follow Oak to his lab
-	ld a, A_BUTTON | B_BUTTON | SELECT | START | D_RIGHT | D_LEFT | D_UP | D_DOWN
-	ld [wJoyIgnore], a
 	ld a, PALLETTOWN_OAK
 	ld [wSpriteIndex], a
 	xor a
@@ -121,10 +134,22 @@ PalletTownOakNotSafeComeWithMeScript:
 	ret
 
 PalletTownPlayerFollowsOakScript:
-	ld a, [wNPCMovementScriptPointerTableNum]
-	and a ; is the movement script over?
-	ret nz
-
+	ld c, BANK(Music_PalletTown)
+	ld a, MUSIC_PALLET_TOWN
+	SetEvent EVENT_FOLLOWED_OAK_INTO_LAB
+	SetEvent EVENT_FOLLOWED_OAK_INTO_LAB_2
+	SetEvent EVENT_BATTLED_RIVAL_IN_OAKS_LAB
+	SetEvent EVENT_OAK_ASKED_TO_CHOOSE_MON
+	SetEvent EVENT_GOT_STARTER
+	ld a, HS_OAKS_LAB_RIVAL
+	ld [wMissableObjectIndex], a
+	predef HideObject
+		ld a, HS_OAKS_LAB_OAK_2
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	ld a, HS_OAKS_LAB_OAK_1
+	ld [wMissableObjectIndex], a
+	predef ShowObject
 	; trigger the next script
 	ld a, SCRIPT_PALLETTOWN_DAISY
 	ld [wPalletTownCurScript], a
@@ -213,4 +238,12 @@ PalletTownPlayersHouseSignText:
 
 PalletTownRivalsHouseSignText:
 	text_far _PalletTownRivalsHouseSignText
+	text_end
+
+OaksLabRivalIPickedTheWrongPokemonText:
+	text_far _OaksLabRivalIPickedTheWrongPokemonText
+	text_end
+
+OaksLabRivalAmIGreatOrWhatText:
+	text_far _OaksLabRivalAmIGreatOrWhatText
 	text_end

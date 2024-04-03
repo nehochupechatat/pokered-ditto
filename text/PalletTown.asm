@@ -4,17 +4,14 @@ _PalletTownOakHeyWaitDontGoOutText::
 	text_end
 
 _PalletTownOakItsUnsafeText::
-	text "OAK: It's unsafe!"
-	line "Wild #MON live"
-	cont "in tall grass!"
+	text "BLUE: Oh wow!"
+	line "I've never seen a"
+	cont "#MON like this"
+	cont "before!"
 
-	para "You need your own"
-	line "#MON for your"
-	cont "protection."
-	cont "I know!"
-
-	para "Here, come with"
-	line "me!"
+	para "Let me catch it!"
+	line "I bet Gramps'd"
+	cont "be impressed!"
 	done
 
 _PalletTownGirlText::
@@ -54,3 +51,15 @@ _PalletTownPlayersHouseSignText::
 _PalletTownRivalsHouseSignText::
 	text "<RIVAL>'s house "
 	done
+
+_OaksLabRivalIPickedTheWrongPokemonText::
+	text "WHAT?"
+	line "Unbelievable!"
+	cont "I picked the"
+	cont "wrong #MON!"
+	prompt
+
+_OaksLabRivalAmIGreatOrWhatText::
+	text "<RIVAL>: Yeah! Am"
+	line "I great or what?"
+	prompt
