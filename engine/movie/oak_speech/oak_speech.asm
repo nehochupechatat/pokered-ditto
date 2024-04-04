@@ -73,7 +73,19 @@ OakSpeech:
 	ld a, HS_ROUTE_22_RIVAL_1
 	ld [wMissableObjectIndex], a
 	predef ShowObject
+
+	ld a, HS_OAKS_LAB_RIVAL
+	ld [wMissableObjectIndex], a
+	predef HideObject
 	
+	ld a, HS_OAKS_LAB_OAK_2
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	
+	ld a, HS_OAKS_LAB_OAK_1
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+
 	ld hl, wNumBoxItems
 	ld a, POTION
 	ld [wcf91], a

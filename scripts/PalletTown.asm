@@ -91,7 +91,7 @@ PalletTownOakNotSafeComeWithMeScript:
 	ld a, [wd730]
 	bit 0, a
 	ret nz
-	xor a ; ld a, SPRITE_FACING_DOWN
+	ld a, SPRITE_FACING_UP
 	ld [wSpritePlayerStateData1FacingDirection], a
 	ld a, TRUE
 	ld [wOakWalkedToPlayer], a
@@ -134,30 +134,23 @@ PalletTownPlayerFollowsOakScript:
 	predef HealParty
 	ld c, 20
 	call DelayFrames
+	ld a, SPRITE_FACING_UP
+	ld [wSpritePlayerStateData1FacingDirection], a
 	ld a, TEXT_OAKSLAB_RIVAL_SMELL_YOU_LATER
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	farcall Music_RivalAlternateStart
 	ld a, PALLETTOWN_OAK
 	ldh [hSpriteIndex], a
-	ld de, .RivalExitMovement
+	ld de, Pallet_RivalExitMovement
 	call MoveSprite
-	ld a, [wXCoord]
-	cp 4
-	; move left or right depending on where the player is standing
-	jr nz, .moveLeft
-	ld a, NPC_MOVEMENT_RIGHT
-	jr .next
-.moveLeft
 	ld a, NPC_MOVEMENT_LEFT
-.next
 	ld [wNPCMovementDirections], a
-
 	ld a, SCRIPT_PALLETTOWN_PLAYER_WATCH_RIVAL_EXIT
-	ld [wOaksLabCurScript], a
+	ld [wPalletTownCurScript], a
 	ret
 
-.RivalExitMovement
+Pallet_RivalExitMovement:
 	db NPC_CHANGE_FACING
 	db NPC_MOVEMENT_DOWN
 	db NPC_MOVEMENT_DOWN
@@ -177,45 +170,24 @@ PalletTownPlayerWatchRivalExitScript:
 	ld [wJoyIgnore], a
 	call PlayDefaultMusic ; reset to map music
 	ld a, SCRIPT_PALLETTOWN_NOOP
-	ld [wOaksLabCurScript], a
+	ld [wPalletTownCurScript], a
 	jr .done
 ; make the player keep facing the rival as he walks away
 .checkRivalPosition
 	ld a, [wNPCNumScriptedSteps]
-	cp $5
+	cp $6
 	jr nz, .turnPlayerDown
-	ld a, [wXCoord]
-	cp 4
-	jr nz, .turnPlayerLeft
-	ld a, SPRITE_FACING_RIGHT
-	ld [wSpritePlayerStateData1FacingDirection], a
-	jr .done
-.turnPlayerLeft
-	ld a, SPRITE_FACING_LEFT
-	ld [wSpritePlayerStateData1FacingDirection], a
 	jr .done
 .turnPlayerDown
-	cp $4
-	ret nz
 	xor a ; ld a, SPRITE_FACING_DOWN
 	ld [wSpritePlayerStateData1FacingDirection], a
 .done
-	ret
+	; trigger the next script
 	SetEvent EVENT_FOLLOWED_OAK_INTO_LAB
 	SetEvent EVENT_FOLLOWED_OAK_INTO_LAB_2
 	SetEvent EVENT_BATTLED_RIVAL_IN_OAKS_LAB
 	SetEvent EVENT_OAK_ASKED_TO_CHOOSE_MON
 	SetEvent EVENT_GOT_STARTER
-	ld a, HS_OAKS_LAB_RIVAL
-	ld [wMissableObjectIndex], a
-	predef HideObject
-		ld a, HS_OAKS_LAB_OAK_2
-	ld [wMissableObjectIndex], a
-	predef HideObject
-	ld a, HS_OAKS_LAB_OAK_1
-	ld [wMissableObjectIndex], a
-	predef ShowObject
-	; trigger the next script
 	ld a, SCRIPT_PALLETTOWN_DAISY
 	ld [wPalletTownCurScript], a
 	ret

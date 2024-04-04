@@ -45,7 +45,8 @@ _PalletTownSignText::
 	done
 
 _PalletTownPlayersHouseSignText::
-	text "<PLAYER>'s house "
+	text "PALLET TOWN"
+	line "#MON SHELTER"
 	done
 
 _PalletTownRivalsHouseSignText::

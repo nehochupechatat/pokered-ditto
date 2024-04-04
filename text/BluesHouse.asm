@@ -5,14 +5,12 @@ _BluesHouseDaisyRivalAtLabText::
 	done
 
 _BluesHouseDaisyOfferMapText::
-	text "Grandpa asked you"
-	line "to run an errand?"
-	cont "Here, this will"
-	cont "help you!"
+	text "Oh no! A stray"
+	line "#MON! Get out!"
 	prompt
 
 _GotMapText::
-	text "<PLAYER> got a"
+	text "DAISY dropped the"
 	line "@"
 	text_ram wStringBuffer
 	text "!@"
@@ -24,16 +22,15 @@ _BluesHouseDaisyBagFullText::
 	done
 
 _BluesHouseDaisyUseMapText::
-	text "Use the TOWN MAP"
-	line "to find out where"
-	cont "you are."
+	text "Well, shit."
+	line "It stole my"
+	cont "TOWN MAP."
 	done
 
 _BluesHouseDaisyWalkingText::
-	text "#MON are living"
-	line "things! If they"
-	cont "get tired, give"
-	cont "them a rest!"
+	line "Why are you here?"
+	cont "Stray #MON are"
+	cont "not allowed."
 	done
 
 _BluesHouseTownMapText::

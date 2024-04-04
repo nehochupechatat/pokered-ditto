@@ -575,10 +575,9 @@ _IndigoPlateauHQText::
 	done
 
 _RedBedroomSNESText::
-	text "<PLAYER> is"
-	line "playing the SNES!"
-	cont "...Okay!"
-	cont "It's time to go!"
+	text "This is the OWNER's"
+	line "SNES. Better not"
+	cont "touch!"
 	done
 
 _Route15UpstairsBinocularsText::

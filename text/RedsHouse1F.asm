@@ -1,25 +1,22 @@
 _RedsHouse1FMomWakeUpText::
-	text "MOM: Right."
-	line "All boys leave"
-	cont "home some day."
-	cont "It said so on TV."
+	text "OWNER: You want"
+	line "to go out for a"
+	cont "walk?"
 
-	para "PROF.OAK, next"
-	line "door, is looking"
-	cont "for you."
+	para "OK, but please"
+	line "stay safe."
 	done
 
 _RedsHouse1FMomYouShouldRestText::
-	text "MOM: <PLAYER>!"
-	line "You should take a"
-	cont "quick rest."
+	text "OWNER: <PLAYER>!"
+	line "Are you OK?"
+	cont "Please rest up!"
 	prompt
 
 _RedsHouse1FMomLookingGreatText::
-	text "MOM: Oh good!"
-	line "You and your"
-	cont "#MON are"
-	cont "looking great!"
+	text "OWNER: Oh good!"
+	line "You're looking"
+	cont "great!"
 	cont "Take care now!"
 	done
 
