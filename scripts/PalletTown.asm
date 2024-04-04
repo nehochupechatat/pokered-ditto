@@ -114,7 +114,6 @@ PalletTownRivalBattleScript:
 	ld [wCurOpponent], a
 	ld a, [wRivalStarter]
 	ld a, $1
-.done
 	ld [wTrainerNo], a
 	ld a, OAKSLAB_RIVAL
 	ld [wSpriteIndex], a
@@ -122,8 +121,6 @@ PalletTownRivalBattleScript:
 	ld hl, OaksLabRivalIPickedTheWrongPokemonText
 	ld de, OaksLabRivalAmIGreatOrWhatText
 	call SaveEndBattleTextPointers
-	call PlayDefaultMusic 
-	
 
 	; trigger the next script
 	ld a, SCRIPT_PALLETTOWN_PLAYER_FOLLOWS_OAK

@@ -888,16 +888,16 @@ _UseNextMonText::
 	done
 
 _Rival1WinText::
-	text "<RIVAL>: Yeah! Am"
-	line "I great or what?"
+	text "BLUE: No! You fainted!"
+	line "I can't catch you!"
 	prompt
 
 _PlayerBlackedOutText2::
-	text "<PLAYER> is out of"
-	line "useable #MON!"
+	text "DITTO has no more"
+	line "energy left for"
+	cont "TRANSFORMing!"
 
-	para "<PLAYER> blacked"
-	line "out!"
+	para "DITTO fainted!"
 	prompt
 
 _LinkBattleLostText::
@@ -915,8 +915,8 @@ _TrainerAboutToUseText::
 	text_ram wEnemyMonNick
 	text "!"
 
-	para "Will <PLAYER>"
-	line "change #MON?"
+	para "Will DITTO"
+	line "change form?"
 	done
 
 _TrainerSentOutText::
