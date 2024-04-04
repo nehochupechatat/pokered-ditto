@@ -257,16 +257,6 @@ _OaksLabRivalIllTakeYouOnText::
 	line "you on!"
 	done
 
-_OaksLabRivalSmellYouLaterText::
-	text "<RIVAL>: Okay!"
-	line "I'll make my"
-	cont "#MON fight to"
-	cont "toughen it up!"
-
-	para "<PLAYER>! Gramps!"
-	line "Smell you later!"
-	done
-
 _OaksLabRivalGrampsText::
 	text "<RIVAL>: Gramps!"
 	done

@@ -52,6 +52,18 @@ _PalletTownRivalsHouseSignText::
 	text "<RIVAL>'s house "
 	done
 
+_OaksLabRivalSmellYouLaterText::
+	text "BLUE: What? No!"
+	line "I swear to God"
+	cont "himself, I will"
+	cont "complete the"
+	cont "#DEX."
+
+	para "I'll catch you,"
+	line "DITTO."
+	cont "Mark my words."
+	done
+
 _OaksLabRivalIPickedTheWrongPokemonText::
 	text "WHAT?"
 	line "Unbelievable!"

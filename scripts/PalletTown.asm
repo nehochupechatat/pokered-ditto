@@ -16,6 +16,7 @@ PalletTown_ScriptPointers:
 	dw_const PalletTownOakNotSafeComeWithMeScript, SCRIPT_PALLETTOWN_OAK_NOT_SAFE_COME_WITH_ME
 	dw_const PalletTownPlayerFollowsOakScript,     SCRIPT_PALLETTOWN_PLAYER_FOLLOWS_OAK
 	dw_const PalletTownRivalBattleScript,		   SCRIPT_PALLETTOWN_BLUE_BATTLE
+	dw_const PalletTownPlayerWatchRivalExitScript, SCRIPT_PALLETTOWN_PLAYER_WATCH_RIVAL_EXIT
 	dw_const PalletTownDaisyScript,                SCRIPT_PALLETTOWN_DAISY
 	dw_const PalletTownNoopScript,                 SCRIPT_PALLETTOWN_NOOP
 
@@ -130,15 +131,76 @@ PalletTownRivalBattleScript:
 	ret
 
 PalletTownPlayerFollowsOakScript:
-; set up movement script that causes the player to follow Oak to his lab
+	predef HealParty
+	ld c, 20
+	call DelayFrames
+	ld a, TEXT_OAKSLAB_RIVAL_SMELL_YOU_LATER
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	farcall Music_RivalAlternateStart
 	ld a, PALLETTOWN_OAK
-	ld [wSpriteIndex], a
+	ldh [hSpriteIndex], a
+	ld de, .RivalExitMovement
+	call MoveSprite
+	ld a, [wXCoord]
+	cp 4
+	; move left or right depending on where the player is standing
+	jr nz, .moveLeft
+	ld a, NPC_MOVEMENT_RIGHT
+	jr .next
+.moveLeft
+	ld a, NPC_MOVEMENT_LEFT
+.next
+	ld [wNPCMovementDirections], a
+
+	ld a, SCRIPT_PALLETTOWN_PLAYER_WATCH_RIVAL_EXIT
+	ld [wOaksLabCurScript], a
+	ret
+
+.RivalExitMovement
+	db NPC_CHANGE_FACING
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db -1 ; end
+
+PalletTownPlayerWatchRivalExitScript:
+	ld a, [wd730]
+	bit 0, a
+	jr nz, .checkRivalPosition
+	ld a, HS_PALLET_TOWN_OAK
+	ld [wMissableObjectIndex], a
+	predef HideObject
 	xor a
-	ld [wNPCMovementScriptFunctionNum], a
-	ld a, 1
-	ld [wNPCMovementScriptPointerTableNum], a
-	ldh a, [hLoadedROMBank]
-	ld [wNPCMovementScriptBank], a
+	ld [wJoyIgnore], a
+	call PlayDefaultMusic ; reset to map music
+	ld a, SCRIPT_PALLETTOWN_NOOP
+	ld [wOaksLabCurScript], a
+	jr .done
+; make the player keep facing the rival as he walks away
+.checkRivalPosition
+	ld a, [wNPCNumScriptedSteps]
+	cp $5
+	jr nz, .turnPlayerDown
+	ld a, [wXCoord]
+	cp 4
+	jr nz, .turnPlayerLeft
+	ld a, SPRITE_FACING_RIGHT
+	ld [wSpritePlayerStateData1FacingDirection], a
+	jr .done
+.turnPlayerLeft
+	ld a, SPRITE_FACING_LEFT
+	ld [wSpritePlayerStateData1FacingDirection], a
+	jr .done
+.turnPlayerDown
+	cp $4
+	ret nz
+	xor a ; ld a, SPRITE_FACING_DOWN
+	ld [wSpritePlayerStateData1FacingDirection], a
+.done
+	ret
 	SetEvent EVENT_FOLLOWED_OAK_INTO_LAB
 	SetEvent EVENT_FOLLOWED_OAK_INTO_LAB_2
 	SetEvent EVENT_BATTLED_RIVAL_IN_OAKS_LAB
@@ -183,6 +245,7 @@ PalletTown_TextPointers:
 	dw_const PalletTownGirlText,             TEXT_PALLETTOWN_GIRL
 	dw_const PalletTownFisherText,           TEXT_PALLETTOWN_FISHER
 	dw_const PalletTownOaksLabSignText,      TEXT_PALLETTOWN_OAKSLAB_SIGN
+	dw_const OaksLabRivalSmellYouLaterText,  TEXT_OAKSLAB_RIVAL_SMELL_YOU_LATER
 	dw_const PalletTownSignText,             TEXT_PALLETTOWN_SIGN
 	dw_const PalletTownPlayersHouseSignText, TEXT_PALLETTOWN_PLAYERSHOUSE_SIGN
 	dw_const PalletTownRivalsHouseSignText,  TEXT_PALLETTOWN_RIVALSHOUSE_SIGN
@@ -249,4 +312,14 @@ OaksLabRivalIPickedTheWrongPokemonText:
 
 OaksLabRivalAmIGreatOrWhatText:
 	text_far _OaksLabRivalAmIGreatOrWhatText
+	text_end
+	
+OaksLabRivalSmellYouLaterText:
+	text_asm
+	ld hl, .Text
+	call PrintText
+	jp TextScriptEnd
+
+.Text:
+	text_far _OaksLabRivalSmellYouLaterText
 	text_end

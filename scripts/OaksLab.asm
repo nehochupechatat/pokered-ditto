@@ -24,8 +24,6 @@ OaksLab_ScriptPointers:
 	dw_const OaksLabRivalChallengesPlayerScript,     SCRIPT_OAKSLAB_RIVAL_CHALLENGES_PLAYER
 	dw_const OaksLabRivalStartBattleScript,          SCRIPT_OAKSLAB_RIVAL_START_BATTLE
 	dw_const OaksLabRivalEndBattleScript,            SCRIPT_OAKSLAB_RIVAL_END_BATTLE
-	dw_const OaksLabRivalStartsExitScript,           SCRIPT_OAKSLAB_RIVAL_STARTS_EXIT
-	dw_const OaksLabPlayerWatchRivalExitScript,      SCRIPT_OAKSLAB_PLAYER_WATCH_RIVAL_EXIT
 	dw_const OaksLabRivalArrivesAtOaksRequestScript, SCRIPT_OAKSLAB_RIVAL_ARRIVES_AT_OAKS_REQUEST
 	dw_const OaksLabOakGivesPokedexScript,           SCRIPT_OAKSLAB_OAK_GIVES_POKEDEX
 	dw_const OaksLabRivalLeavesWithPokedexScript,    SCRIPT_OAKSLAB_RIVAL_LEAVES_WITH_POKEDEX
@@ -432,80 +430,10 @@ OaksLabRivalEndBattleScript:
 	predef HealParty
 	SetEvent EVENT_BATTLED_RIVAL_IN_OAKS_LAB
 
-	ld a, SCRIPT_OAKSLAB_RIVAL_STARTS_EXIT
-	ld [wOaksLabCurScript], a
-	ret
-
-OaksLabRivalStartsExitScript:
-	ld c, 20
-	call DelayFrames
-	ld a, TEXT_OAKSLAB_RIVAL_SMELL_YOU_LATER
-	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
-	farcall Music_RivalAlternateStart
-	ld a, OAKSLAB_RIVAL
-	ldh [hSpriteIndex], a
-	ld de, .RivalExitMovement
-	call MoveSprite
-	ld a, [wXCoord]
-	cp 4
-	; move left or right depending on where the player is standing
-	jr nz, .moveLeft
-	ld a, NPC_MOVEMENT_RIGHT
-	jr .next
-.moveLeft
-	ld a, NPC_MOVEMENT_LEFT
-.next
-	ld [wNPCMovementDirections], a
-
-	ld a, SCRIPT_OAKSLAB_PLAYER_WATCH_RIVAL_EXIT
-	ld [wOaksLabCurScript], a
-	ret
-
-.RivalExitMovement
-	db NPC_CHANGE_FACING
-	db NPC_MOVEMENT_DOWN
-	db NPC_MOVEMENT_DOWN
-	db NPC_MOVEMENT_DOWN
-	db NPC_MOVEMENT_DOWN
-	db NPC_MOVEMENT_DOWN
-	db -1 ; end
-
-OaksLabPlayerWatchRivalExitScript:
-	ld a, [wd730]
-	bit 0, a
-	jr nz, .checkRivalPosition
-	ld a, HS_OAKS_LAB_RIVAL
-	ld [wMissableObjectIndex], a
-	predef HideObject
-	xor a
-	ld [wJoyIgnore], a
-	call PlayDefaultMusic ; reset to map music
 	ld a, SCRIPT_OAKSLAB_NOOP
 	ld [wOaksLabCurScript], a
-	jr .done
-; make the player keep facing the rival as he walks away
-.checkRivalPosition
-	ld a, [wNPCNumScriptedSteps]
-	cp $5
-	jr nz, .turnPlayerDown
-	ld a, [wXCoord]
-	cp 4
-	jr nz, .turnPlayerLeft
-	ld a, SPRITE_FACING_RIGHT
-	ld [wSpritePlayerStateData1FacingDirection], a
-	jr .done
-.turnPlayerLeft
-	ld a, SPRITE_FACING_LEFT
-	ld [wSpritePlayerStateData1FacingDirection], a
-	jr .done
-.turnPlayerDown
-	cp $4
-	ret nz
-	xor a ; ld a, SPRITE_FACING_DOWN
-	ld [wSpritePlayerStateData1FacingDirection], a
-.done
 	ret
+
 
 OaksLabRivalArrivesAtOaksRequestScript:
 	xor a
@@ -737,7 +665,6 @@ OaksLab_TextPointers:
 	dw_const OaksLabRivalIllTakeThisOneText,      TEXT_OAKSLAB_RIVAL_ILL_TAKE_THIS_ONE
 	dw_const OaksLabRivalReceivedMonText,         TEXT_OAKSLAB_RIVAL_RECEIVED_MON
 	dw_const OaksLabRivalIllTakeYouOnText,        TEXT_OAKSLAB_RIVAL_ILL_TAKE_YOU_ON
-	dw_const OaksLabRivalSmellYouLaterText,       TEXT_OAKSLAB_RIVAL_SMELL_YOU_LATER
 	dw_const OaksLabRivalFedUpWithWaitingText,    TEXT_OAKSLAB_RIVAL_FED_UP_WITH_WAITING
 	dw_const OaksLabOakChooseMonText,             TEXT_OAKSLAB_OAK_CHOOSE_MON
 	dw_const OaksLabRivalWhatAboutMeText,         TEXT_OAKSLAB_RIVAL_WHAT_ABOUT_ME
@@ -1174,15 +1101,6 @@ OaksLabRivalIllTakeYouOnText:
 	text_far _OaksLabRivalIllTakeYouOnText
 	text_end
 
-OaksLabRivalSmellYouLaterText:
-	text_asm
-	ld hl, .Text
-	call PrintText
-	jp TextScriptEnd
-
-.Text:
-	text_far _OaksLabRivalSmellYouLaterText
-	text_end
 
 OaksLabRivalGrampsText:
 	text_far _OaksLabRivalGrampsText
