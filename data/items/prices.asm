@@ -1,25 +1,25 @@
 ItemPrices::
 	table_width 3, ItemPrices
 	bcd3 0     ; MASTER_BALL
-	bcd3 1200  ; ULTRA_BALL
-	bcd3 600   ; GREAT_BALL
-	bcd3 200   ; POKE_BALL
+	bcd3 1  ; ULTRA_BALL
+	bcd3 1   ; GREAT_BALL
+	bcd3 1   ; POKE_BALL
 	bcd3 0     ; TOWN_MAP
 	bcd3 0     ; BICYCLE
 	bcd3 0     ; SURFBOARD
-	bcd3 1000  ; SAFARI_BALL
+	bcd3 1  ; SAFARI_BALL
 	bcd3 0     ; POKEDEX
 	bcd3 0     ; MOON_STONE
-	bcd3 100   ; ANTIDOTE
-	bcd3 250   ; BURN_HEAL
-	bcd3 250   ; ICE_HEAL
-	bcd3 200   ; AWAKENING
-	bcd3 200   ; PARLYZ_HEAL
-	bcd3 3000  ; FULL_RESTORE
-	bcd3 2500  ; MAX_POTION
-	bcd3 1500  ; HYPER_POTION
-	bcd3 700   ; SUPER_POTION
-	bcd3 300   ; POTION
+	bcd3 1   ; ANTIDOTE
+	bcd3 1  ; BURN_HEAL
+	bcd3 1   ; ICE_HEAL
+	bcd3 1   ; AWAKENING
+	bcd3 1   ; PARLYZ_HEAL
+	bcd3 1  ; FULL_RESTORE
+	bcd3 1  ; MAX_POTION
+	bcd3 1  ; HYPER_POTION
+	bcd3 1   ; SUPER_POTION
+	bcd3 1   ; POTION
 	bcd3 0     ; BOULDERBADGE
 	bcd3 0     ; CASCADEBADGE
 	bcd3 0     ; THUNDERBADGE
@@ -28,46 +28,46 @@ ItemPrices::
 	bcd3 0     ; MARSHBADGE
 	bcd3 0     ; VOLCANOBADGE
 	bcd3 0     ; EARTHBADGE
-	bcd3 550   ; ESCAPE_ROPE
-	bcd3 350   ; REPEL
+	bcd3 1  ; ESCAPE_ROPE
+	bcd3 1   ; REPEL
 	bcd3 0     ; OLD_AMBER
-	bcd3 2100  ; FIRE_STONE
-	bcd3 2100  ; THUNDER_STONE
-	bcd3 2100  ; WATER_STONE
-	bcd3 9800  ; HP_UP
-	bcd3 9800  ; PROTEIN
-	bcd3 9800  ; IRON
-	bcd3 9800  ; CARBOS
-	bcd3 9800  ; CALCIUM
+	bcd3 1 ; FIRE_STONE
+	bcd3 1  ; THUNDER_STONE
+	bcd3 1  ; WATER_STONE
+	bcd3 1  ; HP_UP
+	bcd3 1  ; PROTEIN
+	bcd3 1  ; IRON
+	bcd3 1  ; CARBOS
+	bcd3 1  ; CALCIUM
 	bcd3 4800  ; RARE_CANDY
 	bcd3 0     ; DOME_FOSSIL
 	bcd3 0     ; HELIX_FOSSIL
 	bcd3 0     ; SECRET_KEY
 	bcd3 0     ; ITEM_2C
 	bcd3 0     ; BIKE_VOUCHER
-	bcd3 950   ; X_ACCURACY
-	bcd3 2100  ; LEAF_STONE
+	bcd3 1   ; X_ACCURACY
+	bcd3 1  ; LEAF_STONE
 	bcd3 0     ; CARD_KEY
 	bcd3 10000 ; NUGGET
 	bcd3 9800  ; ITEM_32
-	bcd3 1000  ; POKE_DOLL
-	bcd3 600   ; FULL_HEAL
-	bcd3 1500  ; REVIVE
-	bcd3 4000  ; MAX_REVIVE
-	bcd3 700   ; GUARD_SPEC
-	bcd3 500   ; SUPER_REPEL
-	bcd3 700   ; MAX_REPEL
-	bcd3 650   ; DIRE_HIT
+	bcd3 1  ; POKE_DOLL
+	bcd3 1   ; FULL_HEAL
+	bcd3 1  ; REVIVE
+	bcd3 1  ; MAX_REVIVE
+	bcd3 1   ; GUARD_SPEC
+	bcd3 1   ; SUPER_REPEL
+	bcd3 1   ; MAX_REPEL
+	bcd3 1   ; DIRE_HIT
 	bcd3 10    ; COIN
-	bcd3 200   ; FRESH_WATER
-	bcd3 300   ; SODA_POP
-	bcd3 350   ; LEMONADE
+	bcd3 1   ; FRESH_WATER
+	bcd3 1   ; SODA_POP
+	bcd3 1   ; LEMONADE
 	bcd3 0     ; S_S_TICKET
 	bcd3 0     ; GOLD_TEETH
-	bcd3 500   ; X_ATTACK
-	bcd3 550   ; X_DEFEND
-	bcd3 350   ; X_SPEED
-	bcd3 350   ; X_SPECIAL
+	bcd3 1   ; X_ATTACK
+	bcd3 1   ; X_DEFEND
+	bcd3 1   ; X_SPEED
+	bcd3 1   ; X_SPECIAL
 	bcd3 0     ; COIN_CASE
 	bcd3 0     ; OAKS_PARCEL
 	bcd3 0     ; ITEMFINDER

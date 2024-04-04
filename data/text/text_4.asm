@@ -1,6 +1,8 @@
 _PokemartGreetingText::
-	text "Hi there!"
-	next "May I help you?"
+	text "Aww, who's a cute"
+	line "little #MON?"
+	para "Do you want"
+	line "something?"
 	done
 
 _PokemonFaintedText::
@@ -10,11 +12,10 @@ _PokemonFaintedText::
 	done
 
 _PlayerBlackedOutText::
-	text "<PLAYER> is out of"
-	line "useable #MON!"
+	text "DITTO doesn't have"
+	line "energy to TRANSFORM!"
 
-	para "<PLAYER> blacked"
-	line "out!"
+	para "DITTO fainted!"
 	prompt
 
 _RepelWoreOffText::

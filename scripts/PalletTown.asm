@@ -134,7 +134,14 @@ PalletTownPlayerFollowsOakScript:
 	predef HealParty
 	ld c, 20
 	call DelayFrames
+
+	ld a, PALLETTOWN_OAK
+	ldh [hSpriteIndex], a
 	ld a, SPRITE_FACING_UP
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay
+
+	ld a, SPRITE_FACING_DOWN
 	ld [wSpritePlayerStateData1FacingDirection], a
 	ld a, TEXT_OAKSLAB_RIVAL_SMELL_YOU_LATER
 	ldh [hSpriteIndexOrTextID], a
@@ -156,32 +163,21 @@ Pallet_RivalExitMovement:
 	db NPC_MOVEMENT_DOWN
 	db NPC_MOVEMENT_DOWN
 	db NPC_MOVEMENT_DOWN
-	db NPC_MOVEMENT_DOWN
 	db -1 ; end
 
 PalletTownPlayerWatchRivalExitScript:
 	ld a, [wd730]
 	bit 0, a
-	jr nz, .checkRivalPosition
+	ret nz
+	xor a
+	ld [wJoyIgnore], a
 	ld a, HS_PALLET_TOWN_OAK
 	ld [wMissableObjectIndex], a
 	predef HideObject
-	xor a
-	ld [wJoyIgnore], a
 	call PlayDefaultMusic ; reset to map music
 	ld a, SCRIPT_PALLETTOWN_NOOP
 	ld [wPalletTownCurScript], a
-	jr .done
-; make the player keep facing the rival as he walks away
-.checkRivalPosition
-	ld a, [wNPCNumScriptedSteps]
-	cp $6
-	jr nz, .turnPlayerDown
-	jr .done
-.turnPlayerDown
-	xor a ; ld a, SPRITE_FACING_DOWN
-	ld [wSpritePlayerStateData1FacingDirection], a
-.done
+
 	; trigger the next script
 	SetEvent EVENT_FOLLOWED_OAK_INTO_LAB
 	SetEvent EVENT_FOLLOWED_OAK_INTO_LAB_2

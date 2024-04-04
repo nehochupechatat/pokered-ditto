@@ -85,6 +85,12 @@ OakSpeech:
 	ld a, HS_OAKS_LAB_OAK_1
 	ld [wMissableObjectIndex], a
 	predef ShowObject
+	;this is for debugging purposes only!!
+	;SetEvent EVENT_FOLLOWED_OAK_INTO_LAB
+	;SetEvent EVENT_FOLLOWED_OAK_INTO_LAB_2
+	;SetEvent EVENT_BATTLED_RIVAL_IN_OAKS_LAB
+	;SetEvent EVENT_OAK_ASKED_TO_CHOOSE_MON
+	;SetEvent EVENT_GOT_STARTER
 
 	ld hl, wNumBoxItems
 	ld a, POTION
