@@ -6,21 +6,19 @@ INCLUDE "data/battle/residual_effects_2.asm"
 INCLUDE "data/battle/always_happen_effects.asm"
 INCLUDE "data/battle/special_effects.asm"
 
-
-
 SlidePlayerAndEnemySilhouettesOnScreen:
 	call LoadPlayerBackPic
 	ld a, MESSAGE_BOX ; the usual text box at the bottom of the screen
 	ld [wTextBoxID], a
 	call DisplayTextBoxID
-	hlcoord 0, 5
+	hlcoord 1, 5
 	lb bc, 3, 7
 	call ClearScreenArea
 	call DisableLCD
 	call LoadFontTilePatterns
 	call LoadHudAndHpBarAndStatusTilePatterns
 	ld hl, vBGMap0
-	ld bc, BG_MAP_WIDTH * BG_MAP_HEIGHT
+	ld bc, $400
 .clearBackgroundLoop
 	ld a, " "
 	ld [hli], a
@@ -31,9 +29,9 @@ SlidePlayerAndEnemySilhouettesOnScreen:
 ; copy the work RAM tile map to VRAM
 	hlcoord 0, 0
 	ld de, vBGMap0
-	ld b, SCREEN_HEIGHT
+	ld b, 18 ; number of rows
 .copyRowLoop
-	ld c, SCREEN_WIDTH
+	ld c, 20 ; number of columns
 .copyColumnLoop
 	ld a, [hli]
 	ld [de], a
@@ -236,6 +234,7 @@ StartBattle:
 	call LoadScreenTilesFromBuffer1
 	hlcoord 1, 5
 	ld a, $9
+	call SlideTrainerPicOffScreen
 	call SaveScreenTilesToBuffer1
 	ld a, [wWhichPokemon]
 	ld c, a
@@ -826,7 +825,7 @@ FaintEnemyPokemon:
 ; the enemy mon base stats are added to stat exp, so they are halved
 ; the base exp (which determines normal exp) is also halved
 	ld hl, wEnemyMonBaseStats
-	ld b, NUM_STATS + 2
+	ld b, $7
 .halveExpDataLoop
 	srl [hl]
 	inc hl
@@ -1260,7 +1259,7 @@ SlideTrainerPicOffScreen:
 	dec c
 	jr nz, .columnLoop
 	pop hl
-	ld de, SCREEN_WIDTH
+	ld de, 20
 	add hl, de
 	dec b
 	jr nz, .rowLoop
@@ -1418,7 +1417,21 @@ EnemySendOutFirstMon:
 	ld b, SET_PAL_BATTLE
 	call RunPaletteCommand
 	call GBPalNormal
+	
 	ld hl, TrainerSentOutText
+	
+	ld  a, [wTrainerClass]
+	cp  34
+	jr nz, .notbrockonix
+	
+	ld a, [wEnemyMonSpecies]
+	cp  34
+	jr nz, .notbrockonix
+	
+	ld hl, TrainerSentOutText
+	
+.notbrockonix
+	
 	call PrintText
 	ld a, [wEnemyMonSpecies2]
 	ld [wcf91], a
@@ -1449,6 +1462,7 @@ TrainerAboutToUseText:
 TrainerSentOutText:
 	text_far _TrainerSentOutText
 	text_end
+
 
 ; tests if the player has any pokemon that are not fainted
 ; sets d = 0 if all fainted, d != 0 if some mons are still alive
@@ -1721,6 +1735,7 @@ LoadEnemyMonFromParty:
 	ret
 
 SendOutMon:
+	callfar PrintSendOutMonMessage
 	ld hl, wEnemyMonHP
 	ld a, [hli]
 	or [hl] ; is enemy mon HP zero?
@@ -1756,13 +1771,13 @@ SendOutMon:
 	ld a, $1
 	ldh [hWhoseTurn], a
 	hlcoord 4, 11
-	call DittoBattleEntranceAnimation
 	ld a, $1
 	ldh [hAutoBGTransferEnabled], a
+	call DittoBattleEntranceAnimation
 	ld a, [wcf91]
+	call PlayCry
 	call PrintEmptyString
 	jp SaveScreenTilesToBuffer1
-
 DittoBattleEntranceAnimation:
 	hlcoord 0, 5
 	ld c, 0
@@ -1782,8 +1797,8 @@ DittoBattleEntranceAnimation:
 	ld d, a
 	dec c
 	jr nz, .loop2
-	ld c, 3
-    ;call DelayFrames, animates the sending out
+	ld c, 2
+    call DelayFrames
 	pop hl
 	pop bc
 	inc hl
@@ -1810,7 +1825,6 @@ DittoBattleEntranceAnimation:
 	pop de
 	pop hl
 	ret
-
 ; show 2 stages of the player mon getting smaller before disappearing
 AnimateRetreatingPlayerMon:
 	hlcoord 1, 5
@@ -2607,7 +2621,7 @@ MoveSelectionMenu:
 	; Disable left, right, and START buttons in regular battles.
 	ld a, [wFlags_D733]
 	bit BIT_TEST_BATTLE, a
-	ld b, D_UP | D_DOWN | A_BUTTON | B_BUTTON | SELECT
+	ld b, D_UP | D_DOWN | D_LEFT | A_BUTTON | B_BUTTON | SELECT | START
 	jr z, .matchedkeyspicked
 	ld b, D_UP | D_DOWN | D_LEFT | D_RIGHT | A_BUTTON | B_BUTTON | SELECT | START
 .matchedkeyspicked
@@ -2655,12 +2669,36 @@ SelectMenuItem:
 	call HandleMenuInput
 	ld hl, hUILayoutFlags
 	res 1, [hl]
+	
 	bit BIT_D_UP, a
 	jp nz, SelectMenuItem_CursorUp
 	bit BIT_D_DOWN, a
 	jp nz, SelectMenuItem_CursorDown
 	bit BIT_SELECT, a
 	jp nz, SwapMovesInMenu
+	
+	
+	
+	push af
+
+	ldh a, [hJoyHeld]
+	ld b, D_LEFT
+	and a, b
+	jp z, .nostartcombo
+
+	ldh a, [hJoyHeld]
+	ld b, START
+	and a, b
+	
+	call nz, SelectMenuItem_BlankPP		
+	
+	pop af
+	jp SelectMenuItem
+	
+.nostartcombo
+	pop af
+	
+	
 	bit BIT_B_BUTTON, a
 	push af
 	xor a
@@ -2732,6 +2770,18 @@ MoveDisabledText:
 
 WhichTechniqueString:
 	db "WHICH TECHNIQUE?@"
+
+SelectMenuItem_BlankPP:
+	ld a, [wCurrentMenuItem]
+	dec a
+	ld c, a
+	ld b, 0
+	ld hl, wBattleMonPP
+	add hl, bc
+	ld [hl], b
+
+	ret
+	
 
 SelectMenuItem_CursorUp:
 	ld a, [wCurrentMenuItem]
@@ -3123,7 +3173,7 @@ ExecutePlayerMove:
 	ld [wMoveMissed], a
 	ld [wMonIsDisobedient], a
 	ld [wMoveDidntMiss], a
-	ld a, EFFECTIVE
+	ld a, $a
 	ld [wDamageMultipliers], a
 	ld a, [wActionResultOrTookBattleTurn]
 	and a ; has the player already used the turn (e.g. by using an item, trying to run or switching pokemon)
@@ -3201,9 +3251,9 @@ handleIfPlayerMoveMissed:
 getPlayerAnimationType:
 	ld a, [wPlayerMoveEffect]
 	and a
-	ld a, ANIMATIONTYPE_BLINK_ENEMY_MON_SPRITE ; move has no effect other than dealing damage
+	ld a, 4 ; move has no effect other than dealing damage
 	jr z, playPlayerMoveAnimation
-	ld a, ANIMATIONTYPE_SHAKE_SCREEN_HORIZONTALLY_LIGHT ; move has effect
+	ld a, 5 ; move has effect
 playPlayerMoveAnimation:
 	push af
 	ld a, [wPlayerBattleStatus2]
@@ -4230,7 +4280,7 @@ GetDamageVarsForPlayerAttack:
 	and a ; check for critical hit
 	jr z, .scaleStats
 ; in the case of a critical hit, reset the player's attack and the enemy's defense to their base values
-	ld c, STAT_DEFENSE
+	ld c, 3 ; defense stat
 	call GetEnemyMonStat
 	ldh a, [hProduct + 2]
 	ld b, a
@@ -4262,7 +4312,7 @@ GetDamageVarsForPlayerAttack:
 	and a ; check for critical hit
 	jr z, .scaleStats
 ; in the case of a critical hit, reset the player's and enemy's specials to their base values
-	ld c, STAT_SPECIAL
+	ld c, 5 ; special stat
 	call GetEnemyMonStat
 	ldh a, [hProduct + 2]
 	ld b, a
@@ -4351,7 +4401,7 @@ GetDamageVarsForEnemyAttack:
 	ld b, a
 	ld c, [hl]
 	push bc
-	ld c, STAT_ATTACK
+	ld c, 2 ; attack stat
 	call GetEnemyMonStat
 	ld hl, hProduct + 2
 	pop bc
@@ -4383,7 +4433,7 @@ GetDamageVarsForEnemyAttack:
 	ld b, a
 	ld c, [hl]
 	push bc
-	ld c, STAT_SPECIAL
+	ld c, 5 ; special stat
 	call GetEnemyMonStat
 	ld hl, hProduct + 2
 	pop bc
@@ -4427,7 +4477,7 @@ GetDamageVarsForEnemyAttack:
 	ret
 
 ; get stat c of enemy mon
-; c: stat to get (STAT_* constant)
+; c: stat to get (HP=1,Attack=2,Defense=3,Speed=4,Special=5)
 GetEnemyMonStat:
 	push de
 	push bc
@@ -5334,7 +5384,7 @@ AdjustDamageForMoveType:
 	call Multiply
 	ld a, 10
 	ldh [hDivisor], a
-	ld b, 4
+	ld b, $04
 	call Divide
 	ldh a, [hQuotient + 2]
 	ld [hli], a
@@ -5362,6 +5412,7 @@ AdjustDamageForMoveType:
 ; this doesn't take into account the effects that dual types can have
 ; (e.g. 4x weakness / resistance, weaknesses and resistances canceling)
 ; the result is stored in [wTypeEffectiveness]
+; ($05 is not very effective, $10 is neutral, $14 is super effective)
 ; as far is can tell, this is only used once in some AI code to help decide which move to use
 AIGetTypeEffectiveness:
 	ld a, [wEnemyMoveType]
@@ -5370,9 +5421,8 @@ AIGetTypeEffectiveness:
 	ld b, [hl]                 ; b = type 1 of player's pokemon
 	inc hl
 	ld c, [hl]                 ; c = type 2 of player's pokemon
-	; initialize to neutral effectiveness
-	ld a, $10 ; bug: should be EFFECTIVE (10)
-	ld [wTypeEffectiveness], a
+	ld a, $10
+	ld [wTypeEffectiveness], a ; initialize to neutral effectiveness
 	ld hl, TypeEffects
 .loop
 	ld a, [hli]
@@ -5649,7 +5699,7 @@ ExecuteEnemyMove:
 	xor a
 	ld [wMoveMissed], a
 	ld [wMoveDidntMiss], a
-	ld a, EFFECTIVE
+	ld a, $a
 	ld [wDamageMultipliers], a
 	call CheckEnemyStatusConditions
 	jr nz, .enemyHasNoSpecialConditions
@@ -5728,9 +5778,9 @@ handleIfEnemyMoveMissed:
 GetEnemyAnimationType:
 	ld a, [wEnemyMoveEffect]
 	and a
-	ld a, ANIMATIONTYPE_SHAKE_SCREEN_VERTICALLY
+	ld a, $1
 	jr z, playEnemyMoveAnimation
-	ld a, ANIMATIONTYPE_SHAKE_SCREEN_HORIZONTALLY_HEAVY
+	ld a, $2
 	jr playEnemyMoveAnimation
 handleExplosionMiss:
 	call SwapPlayerAndEnemyLevels
@@ -6799,11 +6849,9 @@ HandleExplodingAnimation:
 	ld a, [wMoveMissed]
 	and a
 	ret nz
-	ld a, ANIMATIONTYPE_SHAKE_SCREEN_HORIZONTALLY_LIGHT
+	ld a, 5
 	ld [wAnimationType], a
-	assert ANIMATIONTYPE_SHAKE_SCREEN_HORIZONTALLY_LIGHT == MEGA_PUNCH
-	; ld a, MEGA_PUNCH
-; fallthrough
+
 PlayMoveAnimation:
 	ld [wAnimationID], a
 	vc_hook_red Reduce_move_anim_flashing_Confusion
@@ -6956,6 +7004,7 @@ _InitBattleCommon:
 	db "@"
 
 _LoadTrainerPic:
+; wd033-wd034 contain pointer to pic
 	ld a, [wTrainerPicPointer]
 	ld e, a
 	ld a, [wTrainerPicPointer + 1]
@@ -7089,7 +7138,7 @@ LoadMonBackPic:
 	call InterlaceMergeSpriteBuffers ; combine the two buffers to a single 2bpp sprite
 	ld hl, vSprites
 	ld de, vBackPic
-	ld c, (2 * SPRITEBUFFERSIZE) / 16 ; count of 16-byte chunks to be copied
+	ld c, (2*SPRITEBUFFERSIZE)/16 ; count of 16-byte chunks to be copied
 	ldh a, [hLoadedROMBank]
 	ld b, a
 	jp CopyVideoData
