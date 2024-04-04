@@ -1294,7 +1294,7 @@ _PlayerMon1Text::
 
 _PlayerMon2Text::
 	text_ram wBattleMonNick
-	text " @"
+	text "@"
 	text_end
 
 _EnoughText::
@@ -1310,8 +1310,8 @@ _GoodText::
 	text_end
 
 _ComeBackText::
-	text_start
-	line "Come back!"
+	text "Time to be a diff"
+	line "#MON!"
 	done
 
 _SuperEffectiveText::

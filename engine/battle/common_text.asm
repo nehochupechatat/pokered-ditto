@@ -438,7 +438,6 @@ RetreatMon:
 	jp PrintText
 
 PlayerMon2Text:
-	text_far _PlayerMon2Text
 	text_asm
 	push de
 	push bc
@@ -476,16 +475,7 @@ PlayerMon2Text:
 ; since the last switch in.
 ; If the enemy mon has gained HP, then a is garbage due to wrap-around and
 ; can fall in any of the ranges below.
-	ld hl, EnoughText ; HP stayed the same
-	and a
-	ret z
-	ld hl, ComeBackText ; HP went down 1% - 29%
-	cp 30
-	ret c
-	ld hl, OKExclamationText ; HP went down 30% - 69%
-	cp 70
-	ret c
-	ld hl, GoodText ; HP went down 70% or more
+	ld hl, ComeBackText
 	ret
 
 EnoughText:

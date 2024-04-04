@@ -1827,25 +1827,10 @@ DittoBattleEntranceAnimation:
 	ret
 ; show 2 stages of the player mon getting smaller before disappearing
 AnimateRetreatingPlayerMon:
-	hlcoord 1, 5
-	lb bc, 7, 7
-	call ClearScreenArea
-	hlcoord 3, 7
-	lb bc, 5, 5
 	xor a
-	ld [wDownscaledMonSize], a
-	ldh [hBaseTileID], a
-	predef CopyDownscaledMonTiles
-	ld c, 4
-	call DelayFrames
-	call .clearScreenArea
-	hlcoord 4, 9
-	lb bc, 3, 3
-	ld a, 1
-	ld [wDownscaledMonSize], a
-	xor a
-	ldh [hBaseTileID], a
-	predef CopyDownscaledMonTiles
+	ldh [hWhoseTurn], a
+	callfar AnimationSlideMonOff
+	ret
 	call Delay3
 	call .clearScreenArea
 	ld a, $4c
