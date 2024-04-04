@@ -27,6 +27,7 @@ OaksLab_ScriptPointers:
 	dw_const OaksLabRivalArrivesAtOaksRequestScript, SCRIPT_OAKSLAB_RIVAL_ARRIVES_AT_OAKS_REQUEST
 	dw_const OaksLabOakGivesPokedexScript,           SCRIPT_OAKSLAB_OAK_GIVES_POKEDEX
 	dw_const OaksLabRivalLeavesWithPokedexScript,    SCRIPT_OAKSLAB_RIVAL_LEAVES_WITH_POKEDEX
+	dw_const OaksLabPlayerMovingDownScript,          SCRIPT_OAKSLAB_PLAYER_MOVING_DOWN
 	dw_const OaksLabNoopScript,                      SCRIPT_OAKSLAB_NOOP
 
 OaksLabDefaultScript:
@@ -399,9 +400,6 @@ OaksLabRivalStartBattleScript:
 	ld a, OAKSLAB_RIVAL
 	ld [wSpriteIndex], a
 	call GetSpritePosition1
-	ld hl, OaksLabRivalIPickedTheWrongPokemonText
-	ld de, OaksLabRivalAmIGreatOrWhatText
-	call SaveEndBattleTextPointers
 	ld hl, wd72d
 	set 6, [hl]
 	set 7, [hl]
@@ -755,10 +753,6 @@ OaksLabSelectedPokeBallScript:
 	ld [wd11e], a
 	ld a, b
 	ld [wSpriteIndex], a
-	CheckEvent EVENT_GOT_STARTER
-	jp nz, OaksLabLastMonScript
-	CheckEventReuseA EVENT_OAK_ASKED_TO_CHOOSE_MON
-	jr nz, OaksLabShowPokeBallPokemonScript
 	ld hl, OaksLabThoseArePokeBallsText
 	call PrintText
 	jp TextScriptEnd
@@ -815,6 +809,26 @@ OaksLabYouWantBulbasaurText:
 .Text:
 	text_far _OaksLabYouWantBulbasaurText
 	text_end
+
+OaksLabPlayerMovingDownScript:
+	ld a, [wSimulatedJoypadStatesIndex]
+	and a
+	ret nz
+	call Delay3
+	ld a, SCRIPT_OAKSLAB_DEFAULT
+	ld [wViridianCityCurScript], a
+	ret
+
+OaksLabMovePlayerDownScript:
+	call StartSimulatingJoypadStates
+	ld a, $1
+	ld [wSimulatedJoypadStatesIndex], a
+	ld a, D_DOWN
+	ld [wSimulatedJoypadStatesEnd], a
+	xor a
+	ld [wSpritePlayerStateData1FacingDirection], a
+	ld [wJoyIgnore], a
+	ret
 
 OaksLabMonChoiceMenu:
 	call PrintText
@@ -891,75 +905,13 @@ OaksLabLastMonText:
 
 OaksLabOak1Text:
 	text_asm
-	CheckEvent EVENT_PALLET_AFTER_GETTING_POKEBALLS
-	jr nz, .already_got_poke_balls
-	ld hl, wPokedexOwned
-	ld b, wPokedexOwnedEnd - wPokedexOwned
-	call CountSetBits
-	ld a, [wNumSetBits]
-	cp 2
-	jr c, .check_for_poke_balls
-	CheckEvent EVENT_GOT_POKEDEX
-	jr z, .check_for_poke_balls
-.already_got_poke_balls
-	ld hl, .HowIsYourPokedexComingText
-	call PrintText
-	ld a, $1
-	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
-	predef DisplayDexRating
-	jp .done
-.check_for_poke_balls
-	ld b, POKE_BALL
-	call IsItemInBag
-	jr nz, .come_see_me_sometimes
-	CheckEvent EVENT_BEAT_ROUTE22_RIVAL_1ST_BATTLE
-	jr nz, .give_poke_balls
-	CheckEvent EVENT_GOT_POKEDEX
-	jr nz, .mon_around_the_world
-	CheckEventReuseA EVENT_BATTLED_RIVAL_IN_OAKS_LAB
-	jr nz, .check_got_parcel
-	ld a, [wd72e]
-	bit 3, a
-	jr nz, .already_got_pokemon
-	ld hl, .WhichPokemonDoYouWantText
-	call PrintText
-	jr .done
-.already_got_pokemon
-	ld hl, .YourPokemonCanFightText
-	call PrintText
-	jr .done
-.check_got_parcel
-	ld b, OAKS_PARCEL
-	call IsItemInBag
-	jr nz, .got_parcel
-	ld hl, .RaiseYourYoungPokemonText
-	call PrintText
-	jr .done
-.got_parcel
-	ld hl, .DeliverParcelText
-	call PrintText
-	call OaksLabScript_RemoveParcel
-	ld a, SCRIPT_OAKSLAB_RIVAL_ARRIVES_AT_OAKS_REQUEST
-	ld [wOaksLabCurScript], a
-	jr .done
-.mon_around_the_world
-	ld hl, .PokemonAroundTheWorldText
-	call PrintText
-	jr .done
-.give_poke_balls
-	CheckAndSetEvent EVENT_GOT_POKEBALLS_FROM_OAK
-	jr nz, .come_see_me_sometimes
-	lb bc, POKE_BALL, 5
-	call GiveItem
-	ld hl, .GivePokeballsText
-	call PrintText
-	jr .done
-.come_see_me_sometimes
 	ld hl, .ComeSeeMeSometimesText
 	call PrintText
-.done
+	call OaksLabMovePlayerDownScript
+	ld a, SCRIPT_OAKSLAB_PLAYER_MOVING_DOWN
+	ld [wOaksLabCurScript], a
 	jp TextScriptEnd
-
+	
 .WhichPokemonDoYouWantText:
 	text_far _OaksLabOak1WhichPokemonDoYouWantText
 	text_end

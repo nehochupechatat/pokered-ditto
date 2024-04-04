@@ -1,3 +1,15 @@
+_OaksLabRivalIPickedTheWrongPokemonText::
+	text "WHAT?"
+	line "Unbelievable!"
+	cont "I picked the"
+	cont "wrong #MON!"
+	prompt
+
+_OaksLabRivalAmIGreatOrWhatText::
+	text "<RIVAL>: Yeah! Am"
+	line "I great or what?"
+	prompt
+
 _PalletTownOakHeyWaitDontGoOutText::
 	text "OAK: Hey! Wait!"
 	line "Don't go out!@"
@@ -16,21 +28,22 @@ _PalletTownOakItsUnsafeText::
 
 _PalletTownGirlText::
 	text "I'm raising"
-	line "#MON too!"
+	line "#MON!"
 
 	para "When they get"
 	line "strong, they can"
-	cont "protect me!"
+	cont "protect me from"
+	cont "#MON like you!"
 	done
 
 _PalletTownFisherText::
 	text "Technology is"
 	line "incredible!"
 
-	para "You can now store"
-	line "and recall items"
-	cont "and #MON as"
-	cont "data via PC!"
+	para "They created you"
+	line "in CINNABAR!"
+	cont "Use your STRENGTH"
+	cont "for good, please."
 	done
 
 _PalletTownOaksLabSignText::
@@ -64,15 +77,3 @@ _OaksLabRivalSmellYouLaterText::
 	line "DITTO."
 	cont "Mark my words."
 	done
-
-_OaksLabRivalIPickedTheWrongPokemonText::
-	text "WHAT?"
-	line "Unbelievable!"
-	cont "I picked the"
-	cont "wrong #MON!"
-	prompt
-
-_OaksLabRivalAmIGreatOrWhatText::
-	text "<RIVAL>: Yeah! Am"
-	line "I great or what?"
-	prompt

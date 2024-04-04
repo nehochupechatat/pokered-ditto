@@ -148,12 +148,10 @@ _OaksLabGivePokeballsExplanationText::
 	done
 
 _OaksLabOak1ComeSeeMeSometimesText::
-	text "OAK: Come see me"
-	line "sometimes."
-
-	para "I want to know how"
-	line "your #DEX is"
-	cont "coming along."
+	text "OAK: Hey! Stray"
+	line "#MON are not"
+	cont "allowed in here!"
+	para "Scram!"
 	done
 
 _OaksLabOak1HowIsYourPokedexComingText::
@@ -175,13 +173,9 @@ _OaksLabOak2Text::
 	done
 
 _OaksLabGirlText::
-	text "PROF.OAK is the"
-	line "authority on"
-	cont "#MON!"
-
-	para "Many #MON"
-	line "trainers hold him"
-	cont "in high regard!"
+	text "What are you"
+	line "doing here in the"
+	cont "LAB?"
 	done
 
 _OaksLabRivalFedUpWithWaitingText::
@@ -337,6 +331,9 @@ _OaksLabRivalLeaveItAllToMeText::
 	done
 
 _OaksLabScientistText::
-	text "I study #MON as"
-	line "PROF.OAK's AIDE."
+	text "I study #MON like"
+	line "you."
+	para "However, you can't"
+	cont "just show up"
+	cont "uninvited! Shoo!"
 	done

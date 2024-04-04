@@ -1,14 +1,6 @@
 _Route1Youngster1MartSampleText::
-	text "Hi! I work at a"
-	line "#MON MART."
-
-	para "It's a convenient"
-	line "shop, so please"
-	cont "visit us in"
-	cont "VIRIDIAN CITY."
-
-	para "I know, I'll give"
-	line "you a sample!"
+	text "Awww, need some"
+	line "healing supplies?"
 	cont "Here you go!"
 	prompt
 
@@ -20,9 +12,10 @@ _Route1Youngster1GotPotionText::
 	text_end
 
 _Route1Youngster1AlsoGotPokeballsText::
-	text "We also carry"
-	line "# BALLs for"
-	cont "catching #MON!"
+	text "You can visit"
+	line "#MON MARTs"
+	cont "anytime if you"
+	cont "want help!"
 	done
 
 _Route1Youngster1NoRoomText::
@@ -31,16 +24,10 @@ _Route1Youngster1NoRoomText::
 	done
 
 _Route1Youngster2Text::
-	text "See those ledges"
-	line "along the road?"
+	text "Oh no! A strong"
+	line "DITTO broke loose?"
 
-	para "It's a bit scary,"
-	line "but you can jump"
-	cont "from them."
-
-	para "You can get back"
-	line "to PALLET TOWN"
-	cont "quicker that way."
+	para "It's a bit scary!"
 	done
 
 _Route1SignText::
