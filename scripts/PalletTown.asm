@@ -15,6 +15,7 @@ PalletTown_ScriptPointers:
 	dw_const PalletTownOakWalksToPlayerScript,     SCRIPT_PALLETTOWN_OAK_WALKS_TO_PLAYER
 	dw_const PalletTownOakNotSafeComeWithMeScript, SCRIPT_PALLETTOWN_OAK_NOT_SAFE_COME_WITH_ME
 	dw_const PalletTownPlayerFollowsOakScript,     SCRIPT_PALLETTOWN_PLAYER_FOLLOWS_OAK
+	dw_const PalletTownRivalBattleScript,		   SCRIPT_PALLETTOWN_BLUE_BATTLE
 	dw_const PalletTownDaisyScript,                SCRIPT_PALLETTOWN_DAISY
 	dw_const PalletTownNoopScript,                 SCRIPT_PALLETTOWN_NOOP
 
@@ -93,18 +94,21 @@ PalletTownOakNotSafeComeWithMeScript:
 	ld [wSpritePlayerStateData1FacingDirection], a
 	ld a, TRUE
 	ld [wOakWalkedToPlayer], a
-	ld a, SELECT | START
+	ld a, SELECT
 	ld [wJoyIgnore], a
 	ld a, TEXT_PALLETTOWN_OAK
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
-	
-; set up rival battle
-	ld a, [wd730]
-	bit 0, a
-	ret nz
+
 
 	; define which team rival uses, and fight it
+	ld a, SCRIPT_PALLETTOWN_BLUE_BATTLE
+	ld [wPalletTownCurScript], a
+	ret
+
+PalletTownRivalBattleScript:
+	ld a, SELECT
+	ld [wJoyIgnore], a
 	ld a, OPP_RIVAL1
 	ld [wCurOpponent], a
 	ld a, [wRivalStarter]
@@ -117,7 +121,15 @@ PalletTownOakNotSafeComeWithMeScript:
 	ld hl, OaksLabRivalIPickedTheWrongPokemonText
 	ld de, OaksLabRivalAmIGreatOrWhatText
 	call SaveEndBattleTextPointers
+	call PlayDefaultMusic 
 	
+
+	; trigger the next script
+	ld a, SCRIPT_PALLETTOWN_PLAYER_FOLLOWS_OAK
+	ld [wPalletTownCurScript], a
+	ret
+
+PalletTownPlayerFollowsOakScript:
 ; set up movement script that causes the player to follow Oak to his lab
 	ld a, PALLETTOWN_OAK
 	ld [wSpriteIndex], a
@@ -127,15 +139,6 @@ PalletTownOakNotSafeComeWithMeScript:
 	ld [wNPCMovementScriptPointerTableNum], a
 	ldh a, [hLoadedROMBank]
 	ld [wNPCMovementScriptBank], a
-
-	; trigger the next script
-	ld a, SCRIPT_PALLETTOWN_PLAYER_FOLLOWS_OAK
-	ld [wPalletTownCurScript], a
-	ret
-
-PalletTownPlayerFollowsOakScript:
-	ld c, BANK(Music_PalletTown)
-	ld a, MUSIC_PALLET_TOWN
 	SetEvent EVENT_FOLLOWED_OAK_INTO_LAB
 	SetEvent EVENT_FOLLOWED_OAK_INTO_LAB_2
 	SetEvent EVENT_BATTLED_RIVAL_IN_OAKS_LAB
