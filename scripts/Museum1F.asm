@@ -69,58 +69,11 @@ Museum1FScientist1Text:
 	call PrintText
 	jp .done
 .no_ticket
-	ld a, MONEY_BOX
-	ld [wTextBoxID], a
-	call DisplayTextBoxID
 	xor a
 	ldh [hJoyHeld], a
 	ld hl, .WouldYouLikeToComeInText
 	call PrintText
-	call YesNoChoice
-	ld a, [wCurrentMenuItem]
-	and a
-	jr nz, .deny_entry
-	xor a
-	ldh [hMoney], a
-	ldh [hMoney + 1], a
-	ld a, $50
-	ldh [hMoney + 2], a
-	call HasEnoughMoney
-	jr nc, .buy_ticket
-	ld hl, .DontHaveEnoughMoneyText
-	call PrintText
-	jp .deny_entry
-.buy_ticket
-	ld hl, .ThankYouText
-	call PrintText
 	SetEvent EVENT_BOUGHT_MUSEUM_TICKET
-	xor a
-	ld [wPriceTemp], a
-	ld [wPriceTemp + 1], a
-	ld a, $50
-	ld [wPriceTemp + 2], a
-	ld hl, wPriceTemp + 2
-	ld de, wPlayerMoney + 2
-	ld c, $3
-	predef SubBCDPredef
-	ld a, MONEY_BOX
-	ld [wTextBoxID], a
-	call DisplayTextBoxID
-	ld a, SFX_PURCHASE
-	call PlaySoundWaitForCurrent
-	call WaitForSoundToFinish
-	jr .allow_entry
-.deny_entry
-	ld hl, .ComeAgainText
-	call PrintText
-	ld a, $1
-	ld [wSimulatedJoypadStatesIndex], a
-	ld a, D_DOWN
-	ld [wSimulatedJoypadStatesEnd], a
-	call StartSimulatingJoypadStates
-	call UpdateSprites
-	jr .done
-.allow_entry
 	ld a, SCRIPT_MUSEUM1F_NOOP
 	ld [wMuseum1FCurScript], a
 	jr .done
@@ -128,16 +81,7 @@ Museum1FScientist1Text:
 .behind_counter
 	ld hl, .DoYouKnowWhatAmberIsText
 	call PrintText
-	call YesNoChoice
-	ld a, [wCurrentMenuItem]
-	cp $0
-	jr nz, .explain_amber
-	ld hl, .TheresALabSomewhereText
-	call PrintText
-	jr .done
-.explain_amber
-	ld hl, .AmberIsFossilizedTreeSapText
-	call PrintText
+	jp TextScriptEnd
 .done
 	jp TextScriptEnd
 
@@ -189,25 +133,7 @@ Museum1FGamblerText:
 
 Museum1FScientist2Text:
 	text_asm
-	CheckEvent EVENT_GOT_OLD_AMBER
-	jr nz, .got_item
 	ld hl, .TakeThisToAPokemonLabText
-	call PrintText
-	lb bc, OLD_AMBER, 1
-	call GiveItem
-	jr nc, .bag_full
-	SetEvent EVENT_GOT_OLD_AMBER
-	ld a, HS_OLD_AMBER
-	ld [wMissableObjectIndex], a
-	predef HideObject
-	ld hl, .ReceivedOldAmberText
-	jr .done
-.bag_full
-	ld hl, .YouDontHaveSpaceText
-	jr .done
-.got_item
-	ld hl, .GetTheOldAmberCheckText
-.done
 	call PrintText
 	jp TextScriptEnd
 

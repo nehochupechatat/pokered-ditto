@@ -3,11 +3,11 @@ _Museum1FScientist1ComeAgainText::
 	done
 
 _Museum1FScientist1WouldYouLikeToComeInText::
-	text "It's ¥50 for a"
-	line "child's ticket."
-
-	para "Would you like to"
-	line "come in?"
+	text "Oh wow! A DITTO!"
+	line "Come in please!"
+	para "You'll be a great"
+	line "ATTRACTION to"
+	cont "local TOURISTs!"
 	done
 
 _Museum1FScientist1ThankYouText::
@@ -21,12 +21,9 @@ _Museum1FScientist1DontHaveEnoughMoneyText::
 	prompt
 
 _Museum1FScientist1DoYouKnowWhatAmberIsText::
-	text "You can't sneak"
-	line "in the back way!"
-
-	para "Oh, whatever!"
-	line "Do you know what"
-	cont "AMBER is?"
+	text "#MON aren't"
+	line "allowed in the"
+	cont "back way!"
 	done
 
 _Museum1FScientist1TheresALabSomewhereText::
@@ -43,26 +40,27 @@ _Museum1FScientist1AmberIsFossilizedTreeSapText::
 	done
 
 _Museum1FScientist1GoToOtherSideText::
-	text "Please go to the"
-	line "other side!"
+	text "Please leave this"
+	line "side and stay our"
+	cont "ATTRACTION!"
 	done
 
 _Museum1FScientist1TakePlentyOfTimeText::
-	text "Take plenty of"
-	line "time to look!"
+	text "Look everyone!"
+	line "Today we have"
+	cont "DITTO on exhibit!"
 	done
 
 _Museum1FGamblerText::
-	text "That is one"
+	text "This is one"
 	line "magnificent"
-	cont "fossil!"
+	cont "manmade #MON!"
 	done
 
 _Museum1FScientist2TakeThisToAPokemonLabText::
 	text "Ssh! I think that"
-	line "this chunk of"
-	cont "AMBER contains"
-	cont "#MON DNA!"
+	line "the DOME FOSSIL"
+	cont "contains #MON DNA!"
 
 	para "It would be great"
 	line "if #MON could"
@@ -71,14 +69,7 @@ _Museum1FScientist2TakeThisToAPokemonLabText::
 
 	para "But, my colleagues"
 	line "just ignore me!"
-
-	para "So I have a favor"
-	line "to ask!"
-
-	para "Take this to a"
-	line "#MON LAB and"
-	cont "get it examined!"
-	prompt
+	text_end
 
 _Museum1FScientist2ReceivedOldAmberText::
 	text "<PLAYER> received"
@@ -86,8 +77,8 @@ _Museum1FScientist2ReceivedOldAmberText::
 	text_end
 
 _Museum1FScientist2GetTheOldAmberCheckText::
-	text "Ssh! Get the OLD"
-	line "AMBER checked!"
+	text "Ssh! Get the DOME"
+	line "AF checked!"
 	done
 
 _Museum1FScientist2YouDontHaveSpaceText::
@@ -96,10 +87,10 @@ _Museum1FScientist2YouDontHaveSpaceText::
 	done
 
 _Museum1FScientist3Text::
-	text "We are proud of 2"
-	line "fossils of very"
-	cont "rare, prehistoric"
-	cont "#MON!"
+	text "We are proud of an"
+	line "artificial #MON"
+	cont "from the MEWTWO"
+	cont "PROJECT!"
 	done
 
 _Museum1FOldAmberText::

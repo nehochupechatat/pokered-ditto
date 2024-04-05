@@ -1,11 +1,12 @@
 _PewterCityCooltrainerFText::
 	text "It's rumored that"
-	line "CLEFAIRYs came"
-	cont "from the moon!"
+	line "DITTOs came"
+	cont "from CINNABAR!"
 
 	para "They appeared "
-	line "after MOON STONE"
-	cont "fell on MT.MOON."
+	line "after MEWTWO"
+	cont "destroyed the"
+	cont "#MON MANSION."
 	done
 
 _PewterCityCooltrainerMText::
@@ -18,11 +19,17 @@ _PewterCityCooltrainerMText::
 	cont "but PEWTER GYM's"
 	cont "BROCK is totally"
 	cont "into it!"
+	para "He will certainly"
+	line "capture this"
+	cont "DITTO!"
 	done
 
 _PewterCitySuperNerd1DidYouCheckOutMuseumText::
-	text "Did you check out"
-	line "the MUSEUM?"
+	text "Oh wow! An exotic"
+	line "#MON!"
+	para "I'm going to take"
+	line "you to the MUSEUM!"
+	
 	done
 
 _PewterCitySuperNerd1WerentThoseFossilsAmazingText::
@@ -38,11 +45,10 @@ _PewterCitySuperNerd1YouHaveToGoText::
 	done
 
 _PewterCitySuperNerd1ItsRightHereText::
-	text "It's right here!"
-	line "You have to pay"
-	cont "to get in, but"
-	cont "it's worth it!"
-	cont "See you around!"
+	text "Here! Now go!"
+	line "You'd be a great"
+	cont "ATTRACTION for"
+	cont "attendants!"
 	done
 
 _PewterCitySuperNerd2DoYouKnowWhatImDoingText::
@@ -59,21 +65,23 @@ _PewterCitySuperNerd2ThatsRightText::
 _PewterCitySuperNerd2ImSprayingRepelText::
 	text "I'm spraying REPEL"
 	line "to keep #MON"
-	cont "out of my garden!"
+	cont "like you out! Shoo!"
+	para "Out of my garden!"
 	done
 
 _PewterCityYoungsterYoureATrainerFollowMeText::
-	text "You're a trainer"
-	line "right? BROCK's"
-	cont "looking for new"
-	cont "challengers!"
-	cont "Follow me!"
+	text "I don't know who"
+	line "you are, but you"
+	cont "should go back"
+	cont "to where you came"
+	cont "from."
 	done
 
 _PewterCityYoungsterGoTakeOnBrockText::
-	text "If you have the"
-	line "right stuff, go"
-	cont "take on BROCK!"
+	text "Now go be BROCK's"
+	line "problem."
+	para "And stay out of"
+	line "our way!"
 	done
 
 _PewterCityTrainerTipsText::

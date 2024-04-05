@@ -1,22 +1,23 @@
 _Museum2FYoungsterText::
-	text "MOON STONE?"
+	text "DITTO?"
 
 	para "What's so special"
 	line "about it?"
 	done
 
 _Museum2FGrampsText::
-	text "July 20, 1969!"
+	text "August 19, 1995!"
 
-	para "The 1st lunar"
-	line "landing!"
+	para "The 1st MEW clone"
+	line "produced!"
 
-	para "I bought a color"
-	line "TV to watch it!"
+	para "I watched it on"
+	line "TV! It was.."
+	cont "horrifying!"
 	done
 
 _Museum2FScientistText::
-	text "We have a space"
+	text "We have a DITTO"
 	line "exhibit now."
 	done
 

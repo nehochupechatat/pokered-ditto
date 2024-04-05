@@ -210,16 +210,6 @@ PewterCitySuperNerd1Text:
 	text_asm
 	ld hl, .DidYouCheckOutMuseumText
 	call PrintText
-	call YesNoChoice
-	ld a, [wCurrentMenuItem]
-	and a
-	jr nz, .playerDidNotGoIntoMuseum
-	ld hl, .WerentThoseFossilsAmazingText
-	call PrintText
-	jr .done
-.playerDidNotGoIntoMuseum
-	ld hl, .YouHaveToGoText
-	call PrintText
 	xor a
 	ldh [hJoyPressed], a
 	ldh [hJoyHeld], a
