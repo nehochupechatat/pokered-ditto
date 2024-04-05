@@ -15,6 +15,10 @@ _ViridianCityGambler1GymAlwaysClosedText::
 _ViridianCityGambler1GymLeaderReturnedText::
 	text "VIRIDIAN GYM's"
 	line "LEADER returned!"
+	para "He did so to"
+	line "find out why"
+	cont "exactly are you"
+	cont "so strong!"
 	done
 
 _ViridianCityYoungster2YouWantToKnowAboutText::
@@ -36,18 +40,15 @@ ViridianCityYoungster2CaterpieAndWeedleDescriptionText::
 	done
 
 _ViridianCityGirlHasntHadHisCoffeeYetText::
-	text "Oh Grandpa! Don't"
-	line "be so mean!"
-	cont "He hasn't had his"
-	cont "coffee yet."
+	text "Grandpa! Grandpa!"
+	line "A wild DITTO!"
+	cont "Catch it for me!"
+	para "I want!"
 	done
 
 _ViridianCityGirlWhenIGoShopText::
-	text "When I go shop in"
-	line "PEWTER CITY, I"
-	cont "have to take the"
-	cont "winding trail in"
-	cont "VIRIDIAN FOREST."
+	text "Awww, what a nice"
+	line "little DITTO!"
 	done
 
 _ViridianCityOldManSleepyPrivatePropertyText::
@@ -95,20 +96,8 @@ _ViridianCityOldManHadMyCoffeeNowText::
 	done
 
 _ViridianCityOldManKnowHowToCatchPokemonText::
-	text "I see you're using"
-	line "a #DEX."
-
-	para "When you catch a"
-	line "#MON, #DEX"
-	cont "is automatically"
-	cont "updated."
-
-	para "What? Don't you"
-	line "know how to catch"
-	cont "#MON?"
-
-	para "I'll show you"
-	line "how to then."
+    text "Huh? A wild DITTO?"
+	line "Lemme catch it!"
 	done
 
 _ViridianCityOldManTimeIsMoneyText::
@@ -117,9 +106,12 @@ _ViridianCityOldManTimeIsMoneyText::
 	done
 
 _ViridianCityOldManYouNeedToWeakenTheTargetText::
-	text "First, you need"
-	line "to weaken the"
-	cont "target #MON."
+	text "I guess I don't"
+	line "have it in me"
+	cont "anymore."
+	para "Sorry."
+	line "Don't cry, my"
+	cont "grandchild."
 	done
 
 _ViridianCitySignText::

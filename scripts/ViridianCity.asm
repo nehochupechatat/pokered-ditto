@@ -56,7 +56,7 @@ ViridianCityOldManStartCatchTrainingScript:
 	ld [wBattleType], a
 	ld a, 5
 	ld [wCurEnemyLVL], a
-	ld a, WEEDLE
+	ld a, DITTO
 	ld [wCurOpponent], a
 	ld a, SCRIPT_VIRIDIANCITY_OLD_MAN_END_CATCH_TRAINING
 	ld [wViridianCityCurScript], a
@@ -242,23 +242,10 @@ ViridianCityFisherText:
 
 ViridianCityOldManText:
 	text_asm
-	ld hl, .HadMyCoffeeNowText
-	call PrintText
-	ld c, 2
-	call DelayFrames
-	call YesNoChoice
-	ld a, [wCurrentMenuItem]
-	and a
-	jr z, .refused
 	ld hl, .KnowHowToCatchPokemonText
 	call PrintText
 	ld a, SCRIPT_VIRIDIANCITY_OLD_MAN_START_CATCH_TRAINING
 	ld [wViridianCityCurScript], a
-	jr .done
-.refused
-	ld hl, .TimeIsMoneyText
-	call PrintText
-.done
 	jp TextScriptEnd
 
 .HadMyCoffeeNowText:

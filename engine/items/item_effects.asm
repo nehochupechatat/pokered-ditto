@@ -153,7 +153,8 @@ ItemUseBall:
 	jp z, .setAnimData
 
 	ld a, [wBattleType]
-	dec a
+	cp BATTLE_TYPE_OLD_MAN
+	jr z, .oldManBattle
 	jr nz, .notOldManBattle
 
 .oldManBattle
@@ -161,7 +162,9 @@ ItemUseBall:
 	ld de, wPlayerName
 	ld bc, NAME_LENGTH
 	call CopyData ; save the player's name in the Wild Monster data (part of the Cinnabar Island Missingno. glitch)
-	jp .captured
+	ld a, [wBattleType]
+	cp BATTLE_TYPE_OLD_MAN
+	jp z, .failedToCapture
 
 .notOldManBattle
 ; If the player is fighting the ghost Marowak, set the value that indicates the
