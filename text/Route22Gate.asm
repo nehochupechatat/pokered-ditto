@@ -1,6 +1,7 @@
 _Route22GateGuardNoBoulderbadgeText::
-	text "Only human trainers"
-	line "are allowed through."
+	text "Only humans are"
+	line "allowed to go"
+	cont "through!@"
 	text_end
 
 _Route22GateGuardICantLetYouPassText::

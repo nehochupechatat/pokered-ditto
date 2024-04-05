@@ -85,6 +85,16 @@ OakSpeech:
 	ld a, HS_OAKS_LAB_OAK_1
 	ld [wMissableObjectIndex], a
 	predef ShowObject
+	
+	
+	ld hl, wRivalStarter
+	ld a, STARTER2
+	ld [hli], a
+	inc hl ; hl = wPlayerStarter
+	ld a, STARTER1
+	ld [hl], a
+
+
 	;this is for debugging purposes only!!
 	;SetEvent EVENT_FOLLOWED_OAK_INTO_LAB
 	;SetEvent EVENT_FOLLOWED_OAK_INTO_LAB_2

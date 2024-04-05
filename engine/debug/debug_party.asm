@@ -26,9 +26,6 @@ ENDC
 	db JOLTEON, 56
 	db DUGTRIO, 56
 	db ARTICUNO, 57
-IF DEF(_DEBUG)
-	db PIKACHU, 5
-ENDC
 	db -1 ; end
 
 PrepareNewGameDebug: ; dummy except in _DEBUG
@@ -79,14 +76,6 @@ IF DEF(_DEBUG)
 	ld a, FLY
 	ld [hl], a
 	ld hl, wPartyMon5PP
-	ld a, 15
-	ld [hl], a
-
-	; Pikachu gets Surf.
-	ld hl, wPartyMon6Moves + 2
-	ld a, SURF
-	ld [hl], a
-	ld hl, wPartyMon6PP + 2
 	ld a, 15
 	ld [hl], a
 
