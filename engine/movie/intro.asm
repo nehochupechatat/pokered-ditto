@@ -11,8 +11,6 @@ PlayIntro:
 	inc a
 	ldh [hAutoBGTransferEnabled], a
 	call PlayShootingStar
-	call PlayIntroScene
-	call GBFadeOutToWhite
 	xor a
 	ldh [hSCX], a
 	ldh [hAutoBGTransferEnabled], a
@@ -330,12 +328,6 @@ PlayShootingStar:
 	ld c, 40
 	call DelayFrames
 .next
-	ld a, BANK(Music_IntroBattle)
-	ld [wAudioROMBank], a
-	ld [wAudioSavedROMBank], a
-	ld a, MUSIC_INTRO_BATTLE
-	ld [wNewSoundID], a
-	call PlaySound
 	call IntroClearMiddleOfScreen
 	call ClearSprites
 	jp Delay3
