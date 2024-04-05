@@ -1,10 +1,6 @@
 _Route22GateGuardNoBoulderbadgeText::
-	text "Only truly skilled"
-	line "trainers are"
-	cont "allowed through."
-
-	para "You don't have the"
-	line "BOULDERBADGE yet!@"
+	text "Only human trainers"
+	line "are allowed through."
 	text_end
 
 _Route22GateGuardICantLetYouPassText::
@@ -18,5 +14,5 @@ _Route22GateGuardICantLetYouPassText::
 _Route22GateGuardGoRightAheadText::
 	text "Oh! That is the"
 	line "BOULDERBADGE!"
-	cont "Go right ahead!@"
+	cont "What the hell?@"
 	text_end

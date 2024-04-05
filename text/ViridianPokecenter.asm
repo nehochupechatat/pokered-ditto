@@ -1,8 +1,10 @@
 _ViridianPokecenterGentlemanText::
-	text "You can use that"
-	line "PC in the corner."
+	text "The #MON CENTER"
+	line "helps stray"
+	cont "#MON in need"
+	cont "like you."
 
-	para "The receptionist"
+	para "NURSE JOY"
 	line "told me. So kind!"
 	done
 

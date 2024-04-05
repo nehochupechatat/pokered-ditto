@@ -1,12 +1,7 @@
 _ViridianCityYoungster1Text::
-	text "Those # BALLs"
-	line "at your waist!"
-	cont "You have #MON!"
-
-	para "It's great that"
-	line "you can carry and"
-	cont "use #MON any"
-	cont "time, anywhere!"
+	text "You are a #MON?"
+	para "Be careful to not"
+	line "be caught!"
 	done
 
 _ViridianCityGambler1GymAlwaysClosedText::
@@ -23,10 +18,8 @@ _ViridianCityGambler1GymLeaderReturnedText::
 	done
 
 _ViridianCityYoungster2YouWantToKnowAboutText::
-	text "You want to know"
-	line "about the 2 kinds"
-	cont "of caterpillar"
-	cont "#MON?"
+	text "Stay away from me,"
+	line "you devil spawn!"
 	done
 
 ViridianCityYoungster2OkThenText::
@@ -66,30 +59,21 @@ _ViridianCityOldManSleepyPrivatePropertyText::
 	done
 
 ViridianCityFisherYouCanHaveThisText::
-	text "Yawn!"
-	line "I must have dozed"
-	cont "off in the sun."
-
-	para "I had this dream"
-	line "about a DROWZEE"
-	cont "eating my dream."
 	cont "What's this?"
-	cont "Where did this TM"
+	cont "Where did you"
 	cont "come from?"
 
 	para "This is spooky!"
-	line "Here, you can"
-	cont "have this TM."
+	line "LEAVE RIGHT NOW."
 	prompt
 
 _ViridianCityFisherReceivedTM42Text::
-	text "<PLAYER> received"
-	line "TM42!@"
+	text "FISHER threw TM42"
+	line "at DITTO!@"
 	text_end
 
 _ViridianCityFisherTM42ExplanationText::
-	text "TM42 contains"
-	line "DREAM EATER..."
+	text "I want to sleep."
 	cont "...Snore..."
 	done
 

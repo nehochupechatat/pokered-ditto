@@ -1,49 +1,30 @@
 _Route22RivalBeforeBattleText1::
-	text "<RIVAL>: Hey!"
-	line "<PLAYER>!"
+	text "<RIVAL>: Wow!"
+	line "DITTO! You back?"
 
-	para "You're going to"
-	line "#MON LEAGUE?"
-
-	para "Forget it! You"
-	line "probably don't"
-	cont "have any BADGEs!"
-
-	para "The guard won't"
-	line "let you through!"
-
-	para "By the way, did"
-	line "your #MON"
-	cont "get any stronger?"
+	para "Let me catch you!"
 	done
 
 _Route22RivalAfterBattleText1::
-	text "I heard #MON"
-	line "LEAGUE has many"
-	cont "tough trainers!"
+	text "<RIVAL>:...What?"
+	line "How come I was"
+	cont "beaten TWICE?"
 
-	para "I have to figure"
-	line "out how to get"
-	cont "past them!"
-
-	para "You should quit"
-	line "dawdling and get"
-	cont "a move on!"
+	para "Are you cursed?"
 	done
 
 _Route22Rival1DefeatedText::
 	text "Awww!"
-	line "You just lucked"
-	cont "out!"
+	line "Why can't I ever"
+	cont "catch you?"
 	prompt
 
 _Route22Rival1VictoryText::
 	text "<RIVAL>: What?"
-	line "Why do I have 2"
-	cont "#MON?"
+	line "How come I was"
+	cont "beaten TWICE?"
 
-	para "You should catch"
-	cont "some more too!"
+	para "Are you cursed?"
 	prompt
 
 _Route22RivalBeforeBattleText2::

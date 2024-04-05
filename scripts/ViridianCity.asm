@@ -152,17 +152,6 @@ ViridianCityYoungster2Text:
 	text_asm
 	ld hl, .YouWantToKnowAboutText
 	call PrintText
-	call YesNoChoice
-	ld a, [wCurrentMenuItem]
-	and a
-	jr nz, .no
-	ld hl, .CaterpieAndWeedleDescriptionText
-	call PrintText
-	jr .text_script_end
-.no
-	ld hl, .OkThenText
-	call PrintText
-.text_script_end
 	jp TextScriptEnd
 
 .YouWantToKnowAboutText:

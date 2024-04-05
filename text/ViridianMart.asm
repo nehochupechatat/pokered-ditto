@@ -21,11 +21,13 @@ _ViridianMartClerkParcelQuestText::
 	text_end
 
 _ViridianMartYoungsterText::
-	text "This shop sells"
-	line "many ANTIDOTEs."
+	text "This shop helps"
+	line "stray #MON"
+	cont "like you."
 	done
 
 _ViridianMartCooltrainerMText::
-	text "No! POTIONs are"
-	line "all sold out."
+	text "No! Leave the store!"
+	line "You're creeping me"
+	cont "out!"
 	done
