@@ -9,27 +9,48 @@ Route2Gate_TextPointers:
 Route2GateOaksAideText:
 	text_asm
 	CheckEvent EVENT_GOT_HM05
+	ld hl, .HM02ExplanationText
 	jr nz, .got_item
-	ld a, 10
-	ldh [hOaksAideRequirement], a
-	ld a, HM_FLASH
-	ldh [hOaksAideRewardItem], a
-	ld [wd11e], a
-	call GetItemName
-	ld hl, wcd6d
-	ld de, wOaksAideRewardItemName
-	ld bc, ITEM_NAME_LENGTH
-	call CopyData
-	predef OaksAideScript
-	ldh a, [hOaksAideResult]
-	cp OAKS_AIDE_GOT_ITEM
-	jr nz, .no_item
-	SetEvent EVENT_GOT_HM05
-.got_item
-	ld hl, .FlashExplanationText
+	ld hl, .Text
 	call PrintText
-.no_item
+	lb bc, HM_FLASH, 1
+	call GiveItem
+	jr nc, .bag_full
+	SetEvent EVENT_GOT_HM05
+	ld hl, .ReceivedHM02Text
+	jr .got_item
+.bag_full
+	ld hl, .HM02NoRoomText
+.got_item
+	call PrintText
 	jp TextScriptEnd
+
+.Text:
+	text "Oh crap!"
+	line "A wild DITTO!"
+	done
+	text_end
+
+.ReceivedHM02Text:
+	text "The AIDE dropped"
+	line "a PARAS!"
+	para "DITTO learned how"
+	line "to turn into one!"
+	done
+	text_end
+
+.HM02ExplanationText:
+	text_far _Route2GateOaksAideFlashExplanationText
+	text_end
+
+.HM02NoRoomText:
+	text "The AIDE dropped"
+	line "a PARAS!"
+	para "But, DITTO's BODY"
+	line "absorbed enough"
+	cont "items already."
+	done
+	text_end
 
 .FlashExplanationText:
 	text_far _Route2GateOaksAideFlashExplanationText

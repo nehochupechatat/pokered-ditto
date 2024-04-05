@@ -2,14 +2,16 @@ _ViridianForestYoungster1Text::
 	text "I came here with"
 	line "some friends!"
 
-	para "They're out for"
-	line "#MON fights!"
+	para "We won't miss an"
+	line "opportunity to"
+	cont "catch an exotic"
+	cont "#MON like you!"
 	done
 
 _ViridianForestYoungster2BattleText::
-	text "Hey! You have"
-	line "#MON! Come on!"
-	cont "Let's battle'em!"
+	text "Hey! An exotic"
+	line "rare #MON!"
+	cont "Let's catch it!"
 	done
 
 _ViridianForestYoungster2EndBattleText::
@@ -19,14 +21,15 @@ _ViridianForestYoungster2EndBattleText::
 	prompt
 
 _ViridianForestYoungster2AfterBattleText::
-	text "Ssh! You'll scare"
-	line "the bugs away!"
+	text "I don't know what"
+	line "#MON you are!"
+	cont "You intimidate me."
 	done
 
 _ViridianForestYoungster3BattleText::
-	text "Yo! You can't jam"
-	line "out if you're a"
-	cont "#MON trainer!"
+	text "Yo, guys! A rare"
+	line "#MON! It looks"
+	cont "so interesting!"
 	done
 
 _ViridianForestYoungster3EndBattleText::
@@ -43,23 +46,24 @@ _ViridianForestYoungster3AfterBattleText::
 
 _ViridianForestYoungster4BattleText::
 	text "Hey, wait up!"
-	line "What's the hurry?"
+	line "What's this"
+	cont "#MON?"
+	para "Lemme see!"
 	done
 
 _ViridianForestYoungster4EndBattleText::
-	text "I"
-	line "give! You're good"
-	cont "at this!"
+	text "No!"
+	line "How'd you wipe out"
+	cont "my entire group's"
+	cont "team?"
 	prompt
 
 _ViridianForestYoungster4AfterBattleText::
-	text "Sometimes, you"
-	line "can find stuff on"
-	cont "the ground!"
-
-	para "I'm looking for"
+	text "I'm looking for"
 	line "the stuff I"
-	cont "dropped!"
+	cont "dropped because"
+	cont "of you!"
+	para "Scram, you pest!"
 	done
 
 _ViridianForestYoungster5Text::
@@ -67,8 +71,9 @@ _ViridianForestYoungster5Text::
 	line "BALLs to catch"
 	cont "#MON with!"
 
-	para "You should carry"
-	line "extras!"
+	para "Now I can't show"
+	line "this #MON to"
+	cont "my friends!"
 	done
 
 _ViridianForestTrainerTips1Text::

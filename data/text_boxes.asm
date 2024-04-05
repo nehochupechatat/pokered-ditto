@@ -37,8 +37,8 @@ TextBoxTextAndCoordTable:
 	text_box_text JP_POKEDEX_MENU_TEMPLATE,          11,  8, 19, 17, JapanesePokedexMenu,     12, 10
 
 BuySellQuitText:
-	db   "BUY"
-	next "SELL"
+	db   "GET"
+	next "GIVE"
 	next "QUIT@"
 
 	db "@" ; unused

@@ -157,9 +157,9 @@ _GymStatueText2::
 
 _ViridianCityPokecenterGuyText::
 	text "#MON CENTERs"
-	line "heal your tired,"
-	cont "hurt or fainted"
-	cont "#MON!"
+	line "heal tired, hurt"
+	cont "or fainted stray"
+	cont "#MON too!"
 	done
 
 _PewterCityPokecenterGuyText::
@@ -490,8 +490,9 @@ _TurnPageText::
 	done
 
 _ViridianSchoolNotebookText5::
-	text "GIRL: Hey! Don't"
-	line "look at my notes!@"
+	text "GIRL: Shoo!"
+	line "Wild #MON"
+	cont "aren't allowed!@"
 	text_end
 
 _ViridianSchoolNotebookText1::
@@ -864,10 +865,10 @@ _EnemyMonFaintedText::
 	prompt
 
 _MoneyForWinningText::
-	text "<PLAYER> got ¥@"
+	text "DITTO absorbed"
+	line "¥@"
 	text_bcd wAmountMoneyWon, 3 | LEADING_ZEROES | LEFT_ALIGN
-	text_start
-	line "for winning!"
+	text "!"
 	prompt
 
 _TrainerDefeatedText::
