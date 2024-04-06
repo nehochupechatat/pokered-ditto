@@ -5,7 +5,8 @@ _PewterPokecenterGentlemanText::
 	line "at MT.MOON? Huh?"
 	cont "I'm on the phone!"
 
-	para "Scram!"
+	para "Scram! No treats"
+	line "for you, DITTO!"
 	done
 
 _PewterPokecenterJigglypuffText::

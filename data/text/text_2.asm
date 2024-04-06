@@ -169,8 +169,9 @@ _PewterCityPokecenterGuyText::
 	line "sings, #MON"
 	cont "get drowsy..."
 
-	para "...Me too..."
-	line "Snore..."
+	para "...How come you"
+	line "..aren't..."
+	para "...Snore..."
 	done
 
 _CeruleanPokecenterGuyText::
@@ -179,27 +180,30 @@ _CeruleanPokecenterGuyText::
 
 	para "He collects rare"
 	line "ones too!"
+	para "And he will add"
+	line "you there if you"
+	cont "are not careful."
 	done
 
 _LavenderPokecenterGuyText::
-	text "CUBONEs wear"
-	line "skulls, right?"
+	text "DITTOs can turn"
+	line "into anything?"
 
 	para "People will pay a"
 	line "lot for one!"
 	done
 
 _MtMoonPokecenterBenchGuyText::
-	text "If you have too"
-	line "many #MON, you"
-	cont "should store them"
-	cont "via PC!"
+	text "Ew! Don't touch"
+	line "me, you...blob!"
 	done
 
 _RockTunnelPokecenterGuyText::
 	text "I heard that"
 	line "GHOSTs haunt"
 	cont "LAVENDER TOWN!"
+	para "Are you one of"
+	line "them??"
 	done
 
 _UnusedBenchGuyText1::
@@ -226,12 +230,15 @@ _VermilionPokecenterGuyText::
 
 	para "But, all #MON"
 	line "will have weak"
-	cont "points against"
-	cont "specific types."
+	cont "points."
 
-	para "So, there is no"
-	line "universally"
-	cont "strong #MON."
+	para "So, you will"
+	line "be caught"
+	cont "eventually."
+	para "You just ain't"
+	line "special, even"
+	cont "if you have"
+	cont "BADGEs!"
 	done
 
 _CeladonCityPokecenterGuyText::
@@ -241,23 +248,17 @@ _CeladonCityPokecenterGuyText::
 	done
 
 _FuchsiaCityPokecenterGuyText::
-	text "If you're studying "
-	line "#MON, visit"
-	cont "the SAFARI ZONE."
-
-	para "It has all sorts"
-	line "of rare #MON."
+	text "You have FOSSILs!"
+	line "Please cash them"
+	cont "to the local LAB."
 	done
 
 _CinnabarPokecenterGuyText::
-	text "#MON can still"
-	line "learn techniques"
-	cont "after canceling"
-	cont "evolution."
-
-	para "Evolution can wait"
-	line "until new moves"
-	cont "have been learned."
+	text "Ah, feels good"
+	line "to be back home,"
+	cont "huh, DITTO?"
+	para "..Or perhaps not."
+	line "..Sorry if you mind."
 	done
 
 _SaffronCityPokecenterGuyText1::

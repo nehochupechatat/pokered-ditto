@@ -1,6 +1,6 @@
 _MtMoonB2FDomeFossilYouWantText::
 	text "You want the"
-	line "DOME FOSSIL?"
+	line "OLD AMBER?"
 	done
 
 _MtMoonB2FHelixFossilYouWantText::
@@ -16,21 +16,21 @@ _MtMoonB2FReceivedFossilText::
 	text_end
 
 _MtMoonB2FYouHaveNoRoomText::
-	text "Look, you've got"
-	line "no room for this.@"
+	text "Look, you've already"
+	line "absorbed enough.@"
 	text_end
 
 _MtMoonB2FSuperNerdTheyreBothMineText::
 	text "Hey, stop!"
 
-	para "I found these"
-	line "fossils! They're"
-	cont "both mine!"
+	para "I found another"
+	line "#MON! DITTO!"
+	cont "You're mine!"
 	done
 
 _MtMoonB2FSuperNerdOkIllShareText::
 	text "OK!"
-	line "I'll share!"
+	line "No DITTO for me!"
 	prompt
 
 _MtMoonB2fSuperNerdEachTakeOneText::
@@ -40,8 +40,8 @@ _MtMoonB2fSuperNerdEachTakeOneText::
 	done
 
 _MtMoonB2FSuperNerdTheresAPokemonLabText::
-	text "Far away, on"
-	line "CINNABAR ISLAND,"
+	text "Far away, in"
+	line "FUCHSIA CITY,"
 	cont "there's a #MON"
 	cont "LAB."
 
@@ -56,10 +56,10 @@ _MtMoonB2FSuperNerdThenThisIsMineText::
 	text_end
 
 _MtMoonB2FRocket1BattleText::
-	text "TEAM ROCKET will"
-	line "find the fossils,"
-	cont "revive and sell"
-	cont "them for cash!"
+	text "Oh, jeez. Another"
+	line "#MON. Shoo!"
+	para "Quit meddling in"
+	line "our journey!"
 	done
 
 _MtMoonB2FRocket1EndBattleText::
@@ -77,6 +77,7 @@ _MtMoonB2FRocket2BattleText::
 	text "We, TEAM ROCKET,"
 	line "are #MON"
 	cont "gangsters!"
+	para "We'll steal you!"
 	done
 
 _MtMoonB2FRocket2EndBattleText::
@@ -85,32 +86,40 @@ _MtMoonB2FRocket2EndBattleText::
 	prompt
 
 _MtMoonB2FRocket2AfterBattleText::
-	text "Darn it all! My"
-	line "associates won't"
+	text "Darn it all!"
+	line "BOSS GIOVANNI won't"
 	cont "stand for this!"
+	para "I can't even get"
+	line "a wild #MON!"
 	done
 
 _MtMoonB2FRocket3BattleText::
 	text "We're pulling a"
 	line "big job here!"
-	cont "Get lost, kid!"
+	cont "Get lost!"
 	done
 
 _MtMoonB2FRocket3EndBattleText::
-	text "So, you"
-	line "are good."
+	text "No!"
+	line "Beaten by a #"
+	cont "MON!"
 	prompt
 
 _MtMoonB2FRocket3AfterBattleText::
 	text "If you find a"
 	line "fossil, give it"
 	cont "to me and scram!"
+	para "Wild #MON"
+	line "aren't even"
+	cont "supposed to have"
+	cont "fossils!"
 	done
 
 _MtMoonB2FRocket4BattleText::
-	text "Little kids"
-	line "should leave"
-	cont "grown-ups alone!"
+	text "Oh! An exotic"
+	line "#MON!"
+	para "BOSS will be proud"
+	line "of what we nabbed!"
 	done
 
 _MtMoonB2FRocket4EndBattleText::
@@ -119,7 +128,7 @@ _MtMoonB2FRocket4EndBattleText::
 	prompt
 
 _MtMoonB2FRocket4AfterBattleText::
-	text "#MON lived"
-	line "here long before"
-	cont "people came."
+	text "GIOVANNI said"
+	line "to watch out"
+	cont "for you..."
 	done

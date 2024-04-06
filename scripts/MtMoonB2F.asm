@@ -102,10 +102,7 @@ MtMoonB2FMoveSuperNerdScript:
 .player_near_dome_fossil
 	ld de, MtMoon3FSuperNerdMoveRightMovementData
 .continue
-	ld a, MTMOONB2F_SUPER_NERD
-	ldh [hSpriteIndex], a
-	call MoveSprite
-	ld a, SCRIPT_MTMOONB2F_SUPER_NERD_TAKES_OTHER_FOSSIL
+	ld a, SCRIPT_MTMOONB2F_DEFAULT
 	ld [wMtMoonB2FCurScript], a
 	ld [wCurMapScript], a
 	ret
@@ -187,8 +184,6 @@ MtMoonB2FSuperNerdText:
 	; CheckEitherEventSetReuseA EVENT_GOT_DOME_FOSSIL, EVENT_GOT_HELIX_FOSSIL
 	and (1 << (EVENT_GOT_DOME_FOSSIL % 8)) | (1 << (EVENT_GOT_HELIX_FOSSIL % 8))
 	jr nz, .got_a_fossil
-	ld hl, MtMoonB2fSuperNerdEachTakeOneText
-	call PrintText
 	jr .done
 .beat_super_nerd
 	ld hl, MtMoonB2FSuperNerdTheyreBothMineText
@@ -247,7 +242,7 @@ MtMoonB2FDomeFossilText:
 	ld a, [wCurrentMenuItem]
 	and a
 	jr nz, .done
-	lb bc, DOME_FOSSIL, 1
+	lb bc, OLD_AMBER, 1
 	call GiveItem
 	jp nc, MtMoonB2FYouHaveNoRoomText
 	call MtMoonB2FReceivedFossilText

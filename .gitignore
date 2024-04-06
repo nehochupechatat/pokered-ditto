@@ -31,3 +31,4 @@
 *.sg1
 engine/menus/naming_screen.asm.bak
 data/text/text_2.asm.bak
+engine/items/item_effects1.asm

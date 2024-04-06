@@ -244,19 +244,8 @@ PewterCitySuperNerd1ItsRightHereText:
 
 PewterCitySuperNerd2Text:
 	text_asm
-	ld hl, .DoYouKnowWhatImDoingText
-	call PrintText
-	call YesNoChoice
-	ld a, [wCurrentMenuItem]
-	cp $0
-	jr nz, .playerDoesNotKnow
-	ld hl, .ThatsRightText
-	call PrintText
-	jr .done
-.playerDoesNotKnow
 	ld hl, .ImSprayingRepelText
 	call PrintText
-.done
 	jp TextScriptEnd
 
 .DoYouKnowWhatImDoingText:

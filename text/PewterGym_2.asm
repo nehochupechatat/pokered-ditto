@@ -3,18 +3,14 @@ _PewterGymBrockPostBattleAdviceText::
 	line "kinds of trainers"
 	cont "in the world!"
 
-	para "You appear to be"
-	line "very gifted as a"
-	cont "#MON trainer!"
-
-	para "Go to the GYM in"
-	line "CERULEAN and test"
-	cont "your abilities!"
+	para "But I've never"
+	line "seen one that's"
+	cont "just a #MON!"
 	done
 
 _PewterGymBrockWaitTakeThisText::
-	text "Wait! Take this"
-	line "with you!"
+	text "Leave my GYM!"
+	line "You creep me out!"
 	done
 
 _PewterGymReceivedTM34Text::
@@ -52,40 +48,37 @@ _PewterGymTM34NoRoomText::
 	done
 
 _PewterGymBrockReceivedBoulderBadgeText::
-	text "I took"
-	line "you for granted."
+	text "No!"
+	line "This #MON is"
+	cont "way too strong!"
+	
+	para "What do you want"
+	line "from me?"
 
-	para "As proof of your"
-	line "victory, here's"
-	cont "the BOULDERBADGE!"
-
-	para "<PLAYER> received"
-	line "the BOULDERBADGE!@"
+	para "BROCK threw the"
+	line "BOULDERBADGE"
+	cont "at DITTO!@"
 	text_end
 
 _PewterGymBrockBoulderBadgeInfoText::
 	text_start
 
-	para "That's an official"
-	line "#MON LEAGUE"
-	cont "BADGE!"
+	para "...That was an"
+	line "official LEAGUE"
+	cont "BADGE..."
 
-	para "Its bearer's"
-	line "#MON become"
-	cont "more powerful!"
-
-	para "The technique"
-	line "FLASH can now be"
-	cont "used any time!"
+	para "...Huh. I guess"
+	line "now a #MON"
+	cont "has become a"
+	cont "TRAINER!"
 	prompt
 
 _PewterGymCooltrainerMBattleText::
-	text "Stop right there,"
-	line "kid!"
+	text "Stop right there!"
 
-	para "You're still light"
-	line "years from facing"
-	cont "BROCK!"
+	para "Wild #MON are"
+	line "light years from"
+	cont "facing BROCK!"
 	done
 
 _PewterGymCooltrainerMEndBattleText::
@@ -97,23 +90,19 @@ _PewterGymCooltrainerMEndBattleText::
 	prompt
 
 _PewterGymCooltrainerMAfterBattleText::
-	text "You're pretty hot,"
-	line "but not as hot"
-	cont "as BROCK!"
+	text "You outwit me"
+	line "but you won't"
+	cont "beat BROCK!"
 	done
 
 _PewterGymGuidePreAdviceText::
-	text "Hiya! I can tell"
-	line "you have what it"
-	cont "takes to become a"
-	cont "#MON champ!"
+	text "Unattended #MON"
+	line "are not allowed"
+	cont "in GYMs."
 
-	para "I'm no trainer,"
-	line "but I can tell"
-	cont "you how to win!"
-
-	para "Let me take you"
-	line "to the top!"
+	para "Leave or bring a"
+	line "human TRAINER"
+	cont "with you!"
 	done
 
 _PewterGymGuideBeginAdviceText::
@@ -140,7 +129,7 @@ _PewterGymGuideFreeServiceText::
 	prompt
 
 _PewterGymGuidePostBattleText::
-	text "Just as I thought!"
-	line "You're #MON"
-	cont "champ material!"
+	text "I can't believe a"
+	line "literal #MON"
+	cont "has a BADGE now!"
 	done

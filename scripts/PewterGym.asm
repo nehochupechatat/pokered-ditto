@@ -48,18 +48,8 @@ PewterGymScriptReceiveTM34:
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_BROCK
-	lb bc, TM_BIDE, 1
-	call GiveItem
-	jr nc, .BagFull
-	ld a, TEXT_PEWTERGYM_RECEIVED_TM34
-	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
 	SetEvent EVENT_GOT_TM34
 	jr .gymVictory
-.BagFull
-	ld a, TEXT_PEWTERGYM_TM34_NO_ROOM
-	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
 .gymVictory
 	ld hl, wObtainedBadges
 	set BIT_BOULDERBADGE, [hl]
@@ -183,19 +173,6 @@ PewterGymGuideText:
 	bit BIT_BOULDERBADGE, a
 	jr nz, .afterBeat
 	ld hl, PewterGymGuidePreAdviceText
-	call PrintText
-	call YesNoChoice
-	ld a, [wCurrentMenuItem]
-	and a
-	jr nz, .PewterGymGuideBeginAdviceText
-	ld hl, PewterGymGuideBeginAdviceText
-	call PrintText
-	jr .PewterGymGuideAdviceText
-.PewterGymGuideBeginAdviceText
-	ld hl, PewterGymGuideFreeServiceText
-	call PrintText
-.PewterGymGuideAdviceText
-	ld hl, PewterGymGuideAdviceText
 	call PrintText
 	jr .done
 .afterBeat

@@ -1,18 +1,19 @@
 _MtMoonPokecenterYoungsterText::
-	text "I've 6 # BALLs"
+	text "I've 5 # BALLs"
 	line "set in my belt."
-
-	para "At most, you can"
-	line "carry 6 #MON."
+	para "...I wish the"
+	line "6th one becomes"
+	cont "you."
+	para "You're so exotic!"
 	done
 
 _MtMoonPokecenterGentlemanText::
-	text "TEAM ROCKET"
-	line "attacks CERULEAN"
-	cont "citizens..."
+	text "DITTO breaks"
+	line "loose from the"
+	cont "CINNABAR MANSION.."
 
-	para "TEAM ROCKET is"
-	line "always in the"
+	para "GIOVANNI's work"
+	line "is always in the"
 	cont "news!"
 	done
 

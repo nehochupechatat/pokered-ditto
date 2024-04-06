@@ -6,11 +6,18 @@ _Route3Text1::
 	para "That tunnel from"
 	line "CERULEAN takes a"
 	cont "lot out of you!"
+	
+	para "...You're lucky"
+	line "that I don't have"
+	cont "the energy to"
+	cont "to capture you!"
 	done
 
 _Route3Youngster1BattleText::
 	text "Hey! I met you in"
 	line "VIRIDIAN FOREST!"
+	para "I think I'll catch"
+	line "you now for real!"
 	done
 
 _Route3Youngster1EndBattleText::
@@ -19,10 +26,10 @@ _Route3Youngster1EndBattleText::
 	prompt
 
 _Route3Youngster1AfterBattleText::
-	text "There are other"
-	line "kinds of #MON"
-	cont "than those found"
-	cont "in the forest!"
+	text "Why are you so"
+	line "strong?"
+	para "Where did you"
+	line "come from?"
 	done
 
 _Route3Youngster2BattleText::
@@ -37,15 +44,15 @@ _Route3Youngster2EndBattleText::
 	prompt
 
 _Route3Youngster2AfterBattleText::
-	text "Are you storing"
-	line "your #MON on"
-	cont "PC? Each BOX can"
-	cont "hold 20 #MON!"
+	text "Even #MON"
+	line "like you should"
+	cont "wear shorts!"
+	
 	done
 
 _Route3CooltrainerF1BattleText::
-	text "You looked at me,"
-	line "didn't you?"
+	text "You want to be"
+	line "caught, don't you?"
 	done
 
 _Route3CooltrainerF1EndBattleText::
@@ -54,14 +61,16 @@ _Route3CooltrainerF1EndBattleText::
 	prompt
 
 _Route3CooltrainerF1AfterBattleText::
-	text "Quit staring if"
-	line "you don't want to"
-	cont "fight!"
+	text "Stay in CINNABAR"
+	line "if you don't want"
+	cont "to be caught!"
 	done
 
 _Route3Youngster3BattleText::
-	text "Are you a trainer?"
-	line "Let's fight!"
+	text "Wow, a #MON"
+	line "with a BADGE?"
+	para "You must be"
+	line "really strong!"
 	done
 
 _Route3Youngster3EndBattleText::
@@ -71,15 +80,15 @@ _Route3Youngster3EndBattleText::
 	prompt
 
 _Route3Youngster3AfterBattleText::
-	text "If a #MON BOX"
-	line "on the PC gets"
-	cont "full, just switch"
-	cont "to another BOX!"
+	text "If the day when"
+	line "you become CHAMP"
+	cont "comes, I'll hop"
+	cont "off this planet."
 	done
 
 _Route3CooltrainerF2BattleText::
-	text "That look you"
-	line "gave me, it's so"
+	text "This new exotic"
+	line "#MON, it's so"
 	cont "intriguing!"
 	done
 
@@ -88,9 +97,9 @@ _Route3CooltrainerF2EndBattleText::
 	prompt
 
 _Route3CooltrainerF2AfterBattleText::
-	text "Avoid fights by"
-	line "not letting"
-	cont "people see you!"
+	text "How come this"
+	line "new #MON is"
+	cont "so hard to catch?"
 	done
 
 _Route3Youngster4BattleText::
@@ -104,14 +113,15 @@ _Route3Youngster4EndBattleText::
 	prompt
 
 _Route3Youngster4AfterBattleText::
-	text "I always wear"
-	line "shorts, even in"
-	cont "winter!"
+	text "Everyone should"
+	line "always wear"
+	cont "shorts, even"
+	cont "wild #MON!"
 	done
 
 _Route3Youngster5BattleText::
-	text "You can fight my"
-	line "new #MON!"
+	text "You WILL fight my"
+	line "new #MON."
 	done
 
 _Route3Youngster5EndBattleText::
@@ -123,11 +133,13 @@ _Route3Youngster5AfterBattleText::
 	text "Trained #MON"
 	line "are stronger than"
 	cont "the wild ones!"
+	para "You, however, are"
+	line "an odd exception."
 	done
 
 _Route3CooltrainerF3BattleText::
-	text "Eek! Did you"
-	line "touch me?"
+	text "Eek! Gelatine"
+	line "touching me!"
 	done
 
 _Route3CooltrainerF3EndBattleText::
@@ -135,8 +147,8 @@ _Route3CooltrainerF3EndBattleText::
 	prompt
 
 _Route3CooltrainerF3AfterBattleText::
-	text "ROUTE 4 is at the"
-	line "foot of MT.MOON."
+	text "Gelatinous touch"
+	line "is so unpleasant!"
 	done
 
 _Route3SignText::

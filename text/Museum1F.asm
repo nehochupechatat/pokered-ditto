@@ -60,7 +60,7 @@ _Museum1FGamblerText::
 _Museum1FScientist2TakeThisToAPokemonLabText::
 	text "Ssh! I think that"
 	line "the DOME FOSSIL"
-	cont "contains #MON DNA!"
+	cont "has #MON DNA!"
 
 	para "It would be great"
 	line "if #MON could"
@@ -69,7 +69,7 @@ _Museum1FScientist2TakeThisToAPokemonLabText::
 
 	para "But, my colleagues"
 	line "just ignore me!"
-	text_end
+	done
 
 _Museum1FScientist2ReceivedOldAmberText::
 	text "<PLAYER> received"
@@ -87,8 +87,8 @@ _Museum1FScientist2YouDontHaveSpaceText::
 	done
 
 _Museum1FScientist3Text::
-	text "We are proud of an"
-	line "artificial #MON"
+	text "We are proud of a"
+	line "manmade #MON"
 	cont "from the MEWTWO"
 	cont "PROJECT!"
 	done

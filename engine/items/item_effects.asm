@@ -2491,6 +2491,10 @@ GetMaxPP:
 	call GetSelectedMoveOffset
 .next
 	ld a, [hl]
+	cp 0
+	jr z, .return
+	
+	
 	dec a
 	push hl
 	ld hl, Moves
@@ -2524,6 +2528,8 @@ GetMaxPP:
 	call AddBonusPP ; add bonus PP from PP Ups
 	ld a, [hl]
 	and %00111111 ; mask out the PP Up count
+
+.return	
 	ld [wMaxPP], a ; store max PP
 	ret
 

@@ -1,15 +1,13 @@
 _PewterGymBrockPreBattleText::
-	text "I'm BROCK!"
-	line "I'm PEWTER's GYM"
-	cont "LEADER!"
+	text "BROCK: What are"
+	line "you doing here?"
+	cont "#MON can't be"
+	cont "TRAINERs!"
 
-	para "I believe in rock"
-	line "hard defense and"
-	cont "determination!"
+	para "You should go"
+	line "back to CINNABAR!"
 
-	para "That's why my"
-	line "#MON are all"
-	cont "the rock-type!"
+	para "... ... ..."
 
 	para "Do you still want"
 	line "to challenge me?"

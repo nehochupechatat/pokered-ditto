@@ -65,8 +65,9 @@ _PewterCitySuperNerd2ThatsRightText::
 _PewterCitySuperNerd2ImSprayingRepelText::
 	text "I'm spraying REPEL"
 	line "to keep #MON"
-	cont "like you out! Shoo!"
+	cont "like you out!"
 	para "Out of my garden!"
+	line "Shoo!"
 	done
 
 _PewterCityYoungsterYoureATrainerFollowMeText::
