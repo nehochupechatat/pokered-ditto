@@ -1,25 +1,17 @@
 _CeruleanCityRivalPreBattleText::
-	text "<RIVAL>: Yo!"
-	line "<PLAYER>!"
-
-	para "You're still"
-	line "struggling along"
-	cont "back here?"
-
-	para "I'm doing great!"
-	line "I caught a bunch"
-	cont "of strong and"
+	text "<RIVAL>: DITTO?"
+	line "Again? God damn!"
+	para "I caught a bunch"
+	line "of strong and"
 	cont "smart #MON!"
 
-	para "Here, let me see"
-	line "what you caught,"
-	cont "<PLAYER>!"
+	para "This time, you"
+	line "will be caught!"
 	done
 
 _CeruleanCityRivalDefeatedText::
-	text "Hey!"
-	line "Take it easy!"
-	cont "You won already!"
+	text "No!"
+	line "Not my team!"
 	prompt
 
 _CeruleanCityRivalVictoryText::
@@ -29,33 +21,26 @@ _CeruleanCityRivalVictoryText::
 	prompt
 
 _CeruleanCityRivalIWentToBillsText::
-	text "<RIVAL>: Hey,"
-	line "guess what?"
+	text "<RIVAL>: I can't"
+	line "believe this."
 
-	para "I went to BILL's"
-	line "and got him to"
-	cont "show me his rare"
-	cont "#MON!"
+	para "I've managed"
+	line "to beat BROCK"
+	cont "and MISTY, yet I"
+	cont "end up losing to"
+	cont "the same #MON!"
+	
+	para "This DITTO is"
+	line "sure creepy!"
 
-	para "That added a lot"
-	line "of pages to my"
-	cont "#DEX!"
-
-	para "After all, BILL's"
-	line "world famous as a"
-	cont "#MANIAC!"
-
-	para "He invented the"
-	line "#MON Storage"
-	cont "System on PC!"
-
-	para "Since you're using"
-	line "his system, go"
-	cont "thank him!"
+	para "It even has a"
+	line "BADGE!"
 
 	para "Well, I better"
-	line "get rolling!"
-	cont "Smell ya later!"
+	line "get rolling"
+	cont "before you do"
+	cont "something even"
+	cont "worse!"
 	done
 
 _CeruleanCityRocketText::
@@ -95,8 +80,9 @@ _CeruleanCityRocketIGiveUpText::
 	prompt
 
 _CeruleanCityRocketIllReturnTheTMText::
-	text "OK! I'll return"
-	line "the TM I stole!"
+	text "Why is this DITTO"
+	line "so strong?"
+	para "Better run for it!"
 	prompt
 
 _CeruleanCityCooltrainerMText::
@@ -116,24 +102,27 @@ _CeruleanCitySuperNerd1Text::
 	done
 
 _CeruleanCitySuperNerd2Text::
-	text "You're making an"
-	line "encyclopedia on"
-	cont "#MON? That"
-	cont "sounds amusing."
+	text "You're becoming"
+	line "a #MON MASTER?"
+	cont "That's funny."
+	para "You're not human!"
+	line "Hahahahahahaha!"
+	para "Ha! Jeez, I think"
+	line "I peed myself!"
 	done
 
 _CeruleanCityGuardText::
 	text "The people here"
 	line "were robbed."
-
-	para "It's obvious that"
-	line "TEAM ROCKET is"
-	cont "behind this most"
-	cont "heinous crime!"
-
+	
 	para "Even our POLICE"
 	line "force has trouble"
 	cont "with the ROCKETs!"
+	
+	para "There is no way a"
+	line "#MON like you"
+	cont "would even stand a"
+	cont "chance!"
 	done
 
 _CeruleanCityCooltrainerF1SlowbroUseSonicboomText::
@@ -156,10 +145,11 @@ _CeruleanCityCooltrainerF1SlowbroWithdrawText::
 	para "It's so hard to"
 	line "control #MON!"
 
-	para "Your #MON's"
-	line "obedience depends"
-	cont "on your abilities"
-	cont "as a trainer!"
+	para "You are evidence."
+	line "Someone left you"
+	cont "on your own, yet"
+	cont "you have BADGEs"
+	cont "already!"
 	done
 
 _CeruleanCitySlowbroTookASnoozeText::
@@ -183,12 +173,11 @@ _CeruleanCitySlowbroIgnoredOrdersText::
 	done
 
 _CeruleanCityCooltrainerF2Text::
-	text "I want a bright"
-	line "red BICYCLE!"
-
-	para "I'll keep it at"
-	line "home, so it won't"
-	cont "get dirty!"
+	text "I'll keep my bike"
+	line "at home, so it"
+	cont "doesn't go dirty"
+	cont "from icky purple"
+	cont "slime!"
 	done
 
 _CeruleanCitySuperNerd3Text::
@@ -199,8 +188,10 @@ _CeruleanCitySuperNerd3Text::
 
 	para "The #MON LEAGUE"
 	line "champion is the"
-	cont "only person who"
-	cont "is allowed in!"
+	cont "only one allowed!"
+	para "Stray #MON like"
+	line "you should stay"
+	cont "out of here!"
 	done
 
 _CeruleanCitySignText::

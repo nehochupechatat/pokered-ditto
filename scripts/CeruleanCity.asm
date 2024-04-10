@@ -305,19 +305,6 @@ CeruleanCityRocketText:
 .beatRocketThief
 	ld hl, .IllReturnTheTMText
 	call PrintText
-	lb bc, TM_DIG, 1
-	call GiveItem
-	jr c, .Success
-	ld hl, .TM28NoRoomText
-	call PrintText
-	jr .Done
-.Success
-	ld a, $1
-	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
-	ld hl, .ReceivedTM28Text
-	call PrintText
-	farcall CeruleanHideRocket
-.Done
 	jp TextScriptEnd
 
 .Text:

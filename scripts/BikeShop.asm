@@ -15,17 +15,11 @@ BikeShopClerkText:
 	call PrintText
 	jp .Done
 .dontHaveBike
-	ld b, BIKE_VOUCHER
-	call IsItemInBag
-	jr z, .dontHaveVoucher
 	ld hl, BikeShopClerkOhThatsAVoucherText
 	call PrintText
 	lb bc, BICYCLE, 1
 	call GiveItem
 	jr nc, .BagFull
-	ld a, BIKE_VOUCHER
-	ldh [hItemToRemoveID], a
-	farcall RemoveItemByID
 	SetEvent EVENT_GOT_BICYCLE
 	ld hl, BikeShopExchangedVoucherText
 	call PrintText

@@ -8,20 +8,21 @@ _ItemUseText002::
 	done
 
 _GotOnBicycleText1::
-	text "<PLAYER> got on the@"
+	text "DITTO turned into@"
 	text_end
 
 _GotOnBicycleText2::
+	text "a @"
 	text_ram wStringBuffer
 	text "!"
 	prompt
 
 _GotOffBicycleText1::
-	text "<PLAYER> got off@"
+	text "DITTO stopped@"
 	text_end
 
 _GotOffBicycleText2::
-	text "the @"
+	text "being a @"
 	text_ram wStringBuffer
 	text "."
 	prompt
@@ -194,7 +195,6 @@ _NothingToCutText::
 	prompt
 
 _UsedCutText::
-	text_ram wcd6d
-	text " hacked"
-	line "away with CUT!"
+    text "DITTO hacked"
+    line "away with the AXE!"
 	prompt

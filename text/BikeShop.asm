@@ -19,15 +19,16 @@ _BikeShopCantAffordText::
 _BikeShopClerkOhThatsAVoucherText::
 	text "Oh, that's..."
 
-	para "A BIKE VOUCHER!"
+	para "A SLIMEY #MON!"
 
-	para "OK! Here you go!"
+	para "Ewwww! LEAVE NOW!!"
 	prompt
 
 _BikeShopExchangedVoucherText::
-	text "<PLAYER> exchanged"
-	line "the BIKE VOUCHER"
-	cont "for a BICYCLE.@"
+	text "The CLERK threw a"
+	line "BICYCLE at DITTO."
+	para "DITTO learned to"
+	line "turn into a BIKE!@"
 	text_end
 
 _BikeShopComeAgainText::
@@ -36,12 +37,10 @@ _BikeShopComeAgainText::
 	done
 
 _BikeShopClerkHowDoYouLikeYourBicycleText::
-	text "How do you like"
-	line "your new BICYCLE?"
-
-	para "You can take it"
-	line "on CYCLING ROAD"
-	cont "and in caves!"
+	text "Do you want to"
+	line "have more stuff"
+	cont "chucked at you?"
+	para "No? Leave now!"
 	done
 
 _BikeShopBagFullText::
