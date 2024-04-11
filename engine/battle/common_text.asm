@@ -364,46 +364,7 @@ GhostCantBeIDdText:
 	text_end
 
 PrintSendOutMonMessage:
-	ld hl, wEnemyMonHP
-	ld a, [hli]
-	or [hl]
-	ld hl, GoText
-	jr z, .printText
-	xor a
-	ldh [hMultiplicand], a
-	ld hl, wEnemyMonHP
-	ld a, [hli]
-	ld [wLastSwitchInEnemyMonHP], a
-	ldh [hMultiplicand + 1], a
-	ld a, [hl]
-	ld [wLastSwitchInEnemyMonHP + 1], a
-	ldh [hMultiplicand + 2], a
-	ld a, 25
-	ldh [hMultiplier], a
-	call Multiply
-	ld hl, wEnemyMonMaxHP
-	ld a, [hli]
-	ld b, [hl]
-	srl a
-	rr b
-	srl a
-	rr b
-	ld a, b
-	ld b, 4
-	ldh [hDivisor], a ; enemy mon max HP divided by 4
-	call Divide
-	ldh a, [hQuotient + 3] ; a = (enemy mon current HP * 25) / (enemy max HP / 4); this approximates the current percentage of max HP
 	ld hl, GoText ; 70% or greater
-	cp 70
-	jr nc, .printText
-	ld hl, DoItText ; 40% - 69%
-	cp 40
-	jr nc, .printText
-	ld hl, GetmText ; 10% - 39%
-	cp 10
-	jr nc, .printText
-	ld hl, EnemysWeakText ; 0% - 9%
-.printText
 	jp PrintText
 
 GoText:

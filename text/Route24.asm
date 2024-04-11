@@ -1,64 +1,50 @@
 _Route24CooltrainerM1YouBeatOurContestText::
-	text "Congratulations!"
-	line "You beat our 5"
-	cont "contest trainers!@"
+	text "Oh my god..."
+	line "How did you?"
+	para "How'd you beat our"
+	line "contest trainers!?@"
 	text_end
 
 _Route24CooltrainerM1YouJustEarnedAPrizeText::
 	text_start
 
-	para "You just earned a"
-	line "fabulous prize!"
+	para "..They must be"
+	line "absolute idiots!"
 	prompt
 
 _Route24CooltrainerM1ReceivedNuggetText::
-	text "<PLAYER> received"
-	line "a @"
-	text_ram wStringBuffer
-	text "!@"
+	text "The guy dropped"
+	line "a NUGGET in awe!@"
 	text_end
 
 _Route24CooltrainerM1NoRoomText::
-	text "You don't have"
-	line "any room!"
+	text "But DITTO can't"
+	line "absorb any more"
+	cont "items!"
 	done
 
 _Route24CooltrainerM1JoinTeamRocketText::
-	text "By the way, would"
-	line "you like to join"
-	cont "TEAM ROCKET?"
+	text "Or are you really"
+	line "that strong?"
 
-	para "We're a group"
-	line "dedicated to evil"
-	cont "using #MON!"
-
-	para "Want to join?"
-
-	para "Are you sure?"
-
-	para "Come on, join us!"
-
-	para "I'm telling you"
-	line "to join!"
-
-	para "OK, you need"
-	line "convincing!"
-
-	para "I'll make you an"
-	line "offer you can't"
-	cont "refuse!"
+	para "GIOVANNI told me"
+	line "about a #MON"
+	cont "like you before."
+	para "I'll beat you."
+	line "Then I'll bring"
+	cont "you to him!"
 	done
 
 _Route24CooltrainerM1DefeatedText::
 	text "Arrgh!"
-	line "You are good!"
+	line "I'm an idiot too!"
 	prompt
 
 _Route24CooltrainerM1YouCouldBecomeATopLeaderText::
 	text "With your ability,"
-	line "you could become"
-	cont "a top leader in"
-	cont "TEAM ROCKET!"
+	line "you could cause"
+	cont "a ton of trouble"
+	cont "to us ROCKETs!"
 	done
 
 _Route24CooltrainerM2BattleText::

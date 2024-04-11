@@ -5,22 +5,22 @@ _CeruleanTrashedHouseFishingGuruTheyStoleATMText::
 	para "Look what they"
 	line "did here!"
 
-	para "They stole a TM"
-	line "for teaching"
-	cont "#MON how to"
-	cont "DIG holes!"
+	para "It is not safe"
+	line "for you to be"
+	cont "out here like"
+	cont "this."
 
-	para "That cost me a"
-	line "bundle, it did!"
+	para "You'll just get"
+	line "stolen!"
 	done
 
 _CeruleanTrashedHouseFishingGuruWhatsLostIsLostText::
-	text "I figure what's"
-	line "lost is lost!"
+	text "I don't know how,"
+	line "but you saved me!"
 
-	para "I decided to teach"
-	line "DIGLETT how to"
-	cont "DIG without a TM!"
+	para "Thanks a lot!"
+	line "You're real strong"
+	cont "for a #MON!"
 	done
 
 _CeruleanTrashedHouseGirlText::

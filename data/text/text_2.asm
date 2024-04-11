@@ -1273,20 +1273,24 @@ _GhostCantBeIDdText::
 	prompt
 
 _GoText::
-	text "Go! @"
+	text "DITTO transformed"
+	line "into @"
 	text_end
 
 _DoItText::
-	text "Do it! @"
+	text "DITTO transformed"
+	line "into @"
 	text_end
 
 _GetmText::
-	text "Get'm! @"
+	text "DITTO transformed"
+	line "into @"
 	text_end
 
 _EnemysWeakText::
 	text "The enemy's weak!"
-	line "Get'm! @"
+	para "DITTO transformed"
+	line "into @"
 	text_end
 
 _PlayerMon1Text::

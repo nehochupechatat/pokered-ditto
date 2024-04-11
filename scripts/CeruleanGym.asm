@@ -48,18 +48,8 @@ CeruleanGymReceiveTM11:
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_MISTY
-	lb bc, TM_BUBBLEBEAM, 1
-	call GiveItem
-	jr nc, .BagFull
-	ld a, TEXT_CERULEANGYM_MISTY_RECEIVED_TM11
-	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
 	SetEvent EVENT_GOT_TM11
 	jr .gymVictory
-.BagFull
-	ld a, TEXT_CERULEANGYM_MISTY_TM11_NO_ROOM
-	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
 .gymVictory
 	ld hl, wObtainedBadges
 	set BIT_CASCADEBADGE, [hl]

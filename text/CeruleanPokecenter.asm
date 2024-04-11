@@ -5,6 +5,10 @@ _CeruleanPokecenterSuperNerdText::
 	line "he'll do whatever"
 	cont "it takes to get"
 	cont "rare #MON!"
+	
+	para "Stay away from"
+	line "him, you poor"
+	cont "thing!"
 	done
 
 _CeruleanPokecenterGentlemanText::
@@ -14,11 +18,10 @@ _CeruleanPokecenterGentlemanText::
 	para "Everyone calls"
 	line "him a #MANIAC!"
 
-	para "I think people"
-	line "are just jealous"
-	cont "of BILL, though."
+	para "I think you should"
+	line "stay away from him."
 
-	para "Who wouldn't want"
-	line "to boast about"
-	cont "their #MON?"
+	para "He'll catch you"
+	line "and send you to"
+	cont "his PC..."
 	done

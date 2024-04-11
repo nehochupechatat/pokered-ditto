@@ -1,48 +1,34 @@
 _CeruleanGymMistyPreBattleText::
-	text "Hi, you're a new"
-	line "face!"
+	text "OMG! Eek! DITTO!"
+	line "It even has a"
+	cont "BADGE too!"
 
-	para "Trainers who want"
-	line "to turn pro have"
-	cont "to have a policy"
-	cont "about #MON!"
+	para "You're not getting"
+	line "past me!"
 
-	para "What is your"
-	line "approach when you"
-	cont "catch #MON?"
-
-	para "My policy is an"
-	line "all-out offensive"
-	cont "with water-type"
-	cont "#MON!"
+	para "I won't get beat"
+	line "by a wild #MON!"
 	done
 
 _CeruleanGymMistyTM11ExplanationText::
-	text "TM11 teaches"
-	line "BUBBLEBEAM!"
-
-	para "Use it on an"
-	line "aquatic #MON!"
+	text "Scram, you pest!"
+	line "I don't want you"
+	cont "in my GYM!"
 	done
 
 _CeruleanGymMistyCascadeBadgeInfoText::
-	text "The CASCADEBADGE"
-	line "makes all #MON"
-	cont "up to L30 obey!"
+	text "I should have"
+	line "brought stronger"
+	cont "#MON."
 
-	para "That includes"
-	line "even outsiders!"
+	para "I just kept those"
+	line "from when I was"
+	cont "challenging BLUE!"
 
-	para "There's more, you"
-	line "can now use CUT"
-	cont "any time!"
-
-	para "You can CUT down"
-	line "small bushes to"
-	cont "open new paths!"
-
-	para "You can also have"
-	line "my favorite TM!"
+	para "I can't believe"
+	line "you have 2 BADGEs"
+	cont "now, you thieving"
+	cont "pest! Scram!"
 	done
 
 _CeruleanGymMistyReceivedTM11Text::
@@ -56,14 +42,15 @@ _CeruleanGymMistyTM11NoRoomText::
 	done
 
 _CeruleanGymMistyReceivedCascadeBadgeText::
-	text "Wow!"
+	text "Shit!"
 	line "You're too much!"
 
-	para "All right!"
-
-	para "You can have the"
-	line "CASCADEBADGE to"
-	cont "show you beat me!@"
+	para "Someone help me"
+	line "against this pest!"
+	
+	para "MISTY dropped the"
+	line "CASCADEBADGE!"
+	para "DITTO absorbed it!@"
 	text_end
 
 _CeruleanGymBattleText1::
@@ -79,17 +66,17 @@ _CeruleanGymEndBattleText1::
 	prompt
 
 _CeruleanGymAfterBattleText1::
-	text "You have to face"
-	line "other trainers to"
-	cont "find out how good"
-	cont "you really are."
+	text "Just because You"
+	line "have one BADGE"
+	cont "doesn't mean you"
+	cont "can be CHAMPION."
 	done
 
 _CeruleanGymBattleText2::
 	text "Splash!"
 
-	para "I'm first up!"
-	line "Let's do it!"
+	para "Stop getting slime"
+	line "all over the GYM!"
 	done
 
 _CeruleanGymEndBattleText2::
@@ -98,36 +85,25 @@ _CeruleanGymEndBattleText2::
 	prompt
 
 _CeruleanGymAfterBattleText2::
-	text "MISTY is going to"
-	line "keep improving!"
-
-	para "She won't lose to"
-	line "someone like you!"
+	text "MISTY won't lose"
+	line "to some weird"
+	cont "#MON like you!"
 	done
 
 _CeruleanGymGymGuideChampInMakingText::
-	text "Yo! Champ in"
-	line "making!"
+	text "I'm sorry, but"
+	line "I must ask you to"
+	cont "leave."
 
-	para "Here's my advice!"
-
-	para "The LEADER, MISTY,"
-	line "is a pro who uses"
-	cont "water #MON!"
-
-	para "You can drain all"
-	line "their water with"
-	cont "plant #MON!"
-
-	para "Or, zap them with"
-	line "electricity!"
+	para "Unattended #MON"
+	line "aren't allowed!"
 	done
 
 _CeruleanGymGymGuideBeatMistyText::
 	text "You beat MISTY!"
-	line "What'd I tell ya?"
+	line "What the hell?"
 
-	para "You and me kid,"
-	line "we make a pretty"
-	cont "darn good team!"
+	para "A #MON with 2"
+	line "BADGEs is un-"
+	cont "acceptable!"
 	done

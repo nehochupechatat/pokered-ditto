@@ -23,7 +23,7 @@ EndOfBattle:
 	call PlaceString
 	ld c, 200
 	call DelayFrames
-	jr .evolution
+	jr .resetVariables
 .notLinkBattle
 	ld a, [wBattleResult]
 	and a
@@ -33,16 +33,12 @@ EndOfBattle:
 	or [hl]
 	inc hl
 	or [hl]
-	jr z, .evolution ; if pay day money is 0, jump
+	jr z, .resetVariables ; if pay day money is 0, jump
 	ld de, wPlayerMoney + 2
 	ld c, $3
 	predef AddBCDPredef
 	ld hl, PickUpPayDayMoneyText
 	call PrintText
-.evolution
-	xor a
-	ld [wForceEvolution], a
-	predef EvolutionAfterBattle
 .resetVariables
 	xor a
 	ld [wLowHealthAlarm], a ;disable low health alarm
