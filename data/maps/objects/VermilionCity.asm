@@ -10,6 +10,7 @@ VermilionCity_Object:
 	db $43 ; border block
 
 	def_warp_events
+	warp_event 11,  3, VERMILION_POKECENTER, 1
 	warp_event  9, 13, POKEMON_FAN_CLUB, 1
 	warp_event 23, 13, VERMILION_MART, 1
 	warp_event 12, 19, VERMILION_GYM, 1

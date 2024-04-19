@@ -890,8 +890,8 @@ _UseNextMonText::
 	done
 
 _Rival1WinText::
-	text "BLUE: No! You fainted!"
-	line "I can't catch you!"
+	text "BLUE: Oh, crap!"
+	line "It fainted!"
 	prompt
 
 _PlayerBlackedOutText2::

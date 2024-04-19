@@ -76,7 +76,7 @@ LoadSpecialWarpData:
 	bit 6, [hl] ; blacked out
 	res 6, [hl]
 	jr z, .otherDestination
-	ld a, [wLastBlackoutMap]
+	ld a, [wLastMap]
 	jr .usedFlyWarp
 .usedDungeonWarp
 	ld hl, wd72d
