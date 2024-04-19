@@ -15,7 +15,6 @@ PewterCity_Object:
 	warp_event 29, 13, PEWTER_NIDORAN_HOUSE, 1
 	warp_event 23, 17, PEWTER_MART, 1
 	warp_event  7, 29, PEWTER_SPEECH_HOUSE, 1
-	warp_event 13, 25, PEWTER_POKECENTER, 1
 
 	def_bg_events
 	bg_event 19, 29, TEXT_PEWTERCITY_TRAINER_TIPS

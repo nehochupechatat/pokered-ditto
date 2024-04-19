@@ -25,7 +25,6 @@ SaffronCity_Object:
 	warp_event 13, 11, SAFFRON_PIDGEY_HOUSE, 1
 	warp_event 25, 11, SAFFRON_MART, 1
 	warp_event 18, 21, SILPH_CO_1F, 1
-	warp_event  9, 29, SAFFRON_POKECENTER, 1
 	warp_event 29, 29, MR_PSYCHICS_HOUSE, 1
 
 	def_bg_events
