@@ -6,7 +6,7 @@ MarkTownVisitedAndLoadMissableObjects::
 	ld b, FLAG_SET
 	ld hl, wTownVisitedFlag   ; mark town as visited (for flying)
 	predef FlagActionPredef
-	call SetLastBlackoutMap
+	farcall SetLastBlackoutMap
 .notInTown
 	ld hl, MapHSPointers
 	ld a, [wCurMap]
