@@ -78,7 +78,7 @@ FlyWarpDataPtr:
 
 .PalletTown:     fly_warp PALLET_TOWN,      5,  6
 .ViridianCity:   fly_warp VIRIDIAN_CITY,   23, 28
-.PewterCity:     fly_warp PEWTER_CITY,     13, 27
+.PewterCity:     fly_warp PEWTER_CITY,     13, 26
 .CeruleanCity:   fly_warp CERULEAN_CITY,   19, 19
 .LavenderTown:   fly_warp LAVENDER_TOWN,    3,  7
 .VermilionCity:  fly_warp VERMILION_CITY,  11,  5

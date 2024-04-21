@@ -13,6 +13,7 @@ ViridianCity_ScriptPointers:
 
 ViridianCityDefaultScript:
 	call ViridianCityCheckGymOpenScript
+	call ViridianCityPokecenterScript
 
 ViridianCityCheckGymOpenScript:
 	CheckEvent EVENT_VIRIDIAN_GYM_OPEN
@@ -30,6 +31,23 @@ ViridianCityCheckGymOpenScript:
 	cp 32
 	ret nz
 	ld a, TEXT_VIRIDIANCITY_GYM_LOCKED
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	xor a
+	ldh [hJoyHeld], a
+	call ViridianCityMovePlayerDownScript
+	ld a, SCRIPT_VIRIDIANCITY_PLAYER_MOVING_DOWN
+	ld [wViridianCityCurScript], a
+	ret
+	
+ViridianCityPokecenterScript:
+	ld a, [wYCoord]
+	cp 26
+	ret nz
+	ld a, [wXCoord]
+	cp 23
+	ret nz
+	ld a, TEXT_VIRIDIANCITY_POKECENTER_LOCKED
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	xor a
@@ -122,6 +140,7 @@ ViridianCity_TextPointers:
 	dw_const ViridianCityGymSignText,                        TEXT_VIRIDIANCITY_GYM_SIGN
 	dw_const ViridianCityGymLockedText,                      TEXT_VIRIDIANCITY_GYM_LOCKED
 	dw_const ViridianCityOldManYouNeedToWeakenTheTargetText, TEXT_VIRIDIANCITY_OLD_MAN_YOU_NEED_TO_WEAKEN_THE_TARGET
+	dw_const ViridianCityPokecenterLockedText,               TEXT_VIRIDIANCITY_POKECENTER_LOCKED
 
 ViridianCityYoungster1Text:
 	text_far _ViridianCityYoungster1Text
@@ -282,4 +301,10 @@ ViridianCityGymSignText:
 
 ViridianCityGymLockedText:
 	text_far _ViridianCityGymLockedText
+	text_end
+
+ViridianCityPokecenterLockedText:
+	text "The doors are"
+	line "shut too tight!"
+	done
 	text_end
