@@ -304,7 +304,5 @@ ViridianCityGymLockedText:
 	text_end
 
 ViridianCityPokecenterLockedText:
-	text "The doors are"
-	line "shut too tight!"
-	done
+	text_far _PokecenterLockedText
 	text_end

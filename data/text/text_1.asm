@@ -147,3 +147,9 @@ _OaksAideNoRoomText::
 	text_ram wOaksAideRewardItemName
 	text "."
 	done
+
+_PokecenterLockedText::
+	text "The doors are"
+	line "shut too tight!"
+	done
+	text_end

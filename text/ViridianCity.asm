@@ -155,8 +155,3 @@ _ViridianCityGymLockedText::
 	text "The GYM's doors"
 	line "are locked..."
 	done
-	
-_PokecenterLockedText:
-	text "The doors are"
-	line "shut too tight!"
-	text_end
