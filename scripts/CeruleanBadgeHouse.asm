@@ -13,58 +13,7 @@ CeruleanBadgeHouseMiddleAgedManText:
 	text_asm
 	ld hl, .Text
 	call PrintText
-	xor a
-	ld [wCurrentMenuItem], a
-	ld [wListScrollOffset], a
-.loop
-	ld hl, .WhichBadgeText
-	call PrintText
-	ld hl, .BadgeItemList
-	call LoadItemList
-	ld hl, wItemList
-	ld a, l
-	ld [wListPointer], a
-	ld a, h
-	ld [wListPointer + 1], a
-	xor a
-	ld [wPrintItemPrices], a
-	ld [wMenuItemToSwap], a
-	ld a, SPECIALLISTMENU
-	ld [wListMenuID], a
-	call DisplayListMenuID
-	jr c, .done
-	ld hl, CeruleanBadgeHouseBadgeTextPointers
-	ld a, [wcf91]
-	sub BOULDERBADGE
-	add a
-	ld d, $0
-	ld e, a
-	add hl, de
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	call PrintText
-	jr .loop
-.done
-	xor a
-	ld [wListScrollOffset], a
-	ld hl, .VisitAnyTimeText
-	call PrintText
 	jp TextScriptEnd
-
-.BadgeItemList:
-	table_width 1, .BadgeItemList
-	db NUM_BADGES ; #
-	db BOULDERBADGE
-	db CASCADEBADGE
-	db THUNDERBADGE
-	db RAINBOWBADGE
-	db SOULBADGE
-	db MARSHBADGE
-	db VOLCANOBADGE
-	db EARTHBADGE
-	db -1 ; end
-	assert_table_length NUM_BADGES + 2
 
 .Text:
 	text_far _CeruleanBadgeHouseMiddleAgedManText

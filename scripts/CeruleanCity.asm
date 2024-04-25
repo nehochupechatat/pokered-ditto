@@ -19,6 +19,44 @@ CeruleanCity_ScriptPointers:
 	dw_const CeruleanCityRivalDefeatedScript,  SCRIPT_CERULEANCITY_RIVAL_DEFEATED
 	dw_const CeruleanCityRivalCleanupScript,   SCRIPT_CERULEANCITY_RIVAL_CLEANUP
 	dw_const CeruleanCityRocketDefeatedScript, SCRIPT_CERULEANCITY_ROCKET_DEFEATED
+	dw_const CeruleanCityPlayerMovingDownScript, SCRIPT_CERULEANCITY_PLAYER_MOVING_DOWN
+	
+CeruleanCityPlayerMovingDownScript:
+	ld a, [wSimulatedJoypadStatesIndex]
+	and a
+	ret nz
+	call Delay3
+	ld a, SCRIPT_CERULEANCITY_DEFAULT
+	ld [wCeruleanCityCurScript], a
+	ret
+
+CeruleanCityMovePlayerDownScript:
+	call StartSimulatingJoypadStates
+	ld a, $1
+	ld [wSimulatedJoypadStatesIndex], a
+	ld a, D_DOWN
+	ld [wSimulatedJoypadStatesEnd], a
+	xor a
+	ld [wSpritePlayerStateData1FacingDirection], a
+	ld [wJoyIgnore], a
+	ret
+
+CeruleanCityPokecenterScript:
+	ld a, [wYCoord]
+	cp 18
+	ret nz
+	ld a, [wXCoord]
+	cp 19
+	ret nz
+	ld a, TEXT_CERULEANCITY_POKECENTER_LOCKED
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	xor a
+	ldh [hJoyHeld], a
+	call PewterCityMovePlayerDownScript
+	ld a, SCRIPT_CERULEANCITY_PLAYER_MOVING_DOWN
+	ld [wCeruleanCityCurScript], a
+	ret
 
 CeruleanCityRocketDefeatedScript:
 	ld a, [wIsInBattle]
@@ -36,6 +74,7 @@ CeruleanCityRocketDefeatedScript:
 	ret
 
 CeruleanCityDefaultScript:
+	call CeruleanCityPokecenterScript
 IF DEF(_DEBUG)
 	call DebugPressedOrHeldB
 	ret nz
@@ -251,6 +290,7 @@ CeruleanCity_TextPointers:
 	dw_const PokeCenterSignText,            TEXT_CERULEANCITY_POKECENTER_SIGN
 	dw_const CeruleanCityBikeShopSign,      TEXT_CERULEANCITY_BIKESHOP_SIGN
 	dw_const CeruleanCityGymSign,           TEXT_CERULEANCITY_GYM_SIGN
+	dw_const CeruleanCityPokecenterLockedText,TEXT_CERULEANCITY_POKECENTER_LOCKED
 
 CeruleanCityRivalText:
 	text_asm
@@ -444,4 +484,8 @@ CeruleanCityBikeShopSign:
 
 CeruleanCityGymSign:
 	text_far _CeruleanCityGymSign
+	text_end
+
+CeruleanCityPokecenterLockedText:
+	text_far _PokecenterLockedText
 	text_end

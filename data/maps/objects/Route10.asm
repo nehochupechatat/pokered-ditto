@@ -10,14 +10,14 @@ Route10_Object:
 	db $2c ; border block
 
 	def_warp_events
-	warp_event 11, 19, ROCK_TUNNEL_POKECENTER, 1
+	warp_event  0, 34, ROCK_TUNNEL_POKECENTER, 1
 	warp_event  8, 17, ROCK_TUNNEL_1F, 1
 	warp_event  8, 53, ROCK_TUNNEL_1F, 3
 	warp_event  6, 39, POWER_PLANT, 1
 
 	def_bg_events
 	bg_event  7, 19, TEXT_ROUTE10_ROCKTUNNEL_NORTH_SIGN
-	bg_event 12, 19, TEXT_ROUTE10_POKECENTER_SIGN
+	bg_event  0, 32, TEXT_ROUTE10_POKECENTER_SIGN
 	bg_event  9, 55, TEXT_ROUTE10_ROCKTUNNEL_SOUTH_SIGN
 	bg_event  5, 41, TEXT_ROUTE10_POWERPLANT_SIGN
 

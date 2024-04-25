@@ -3,12 +3,14 @@ _CeruleanBadgeHouseMiddleAgedManText::
 	line "are owned only by"
 	cont "skilled trainers."
 
-	para "I see you have"
+	para "I see it has"
 	line "at least one."
 
-	para "Those BADGEs have"
-	line "amazing secrets!"
-	prompt
+	para "Whoever its"
+	line "TRAINER was,"
+	cont "they must've been"
+	cont "irresponsible."
+	done
 
 _CeruleanBadgeHouseMiddleAgedManWhichBadgeText::
 	text "Now then..."

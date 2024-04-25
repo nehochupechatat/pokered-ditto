@@ -13,12 +13,51 @@ PewterCity_ScriptPointers:
 	dw_const PewterCityYoungsterShowsPlayerGymScript,     SCRIPT_PEWTERCITY_YOUNGSTER_SHOWS_PLAYER_GYM
 	dw_const PewterCityHideYoungsterScript,               SCRIPT_PEWTERCITY_HIDE_YOUNGSTER
 	dw_const PewterCityResetYoungsterScript,              SCRIPT_PEWTERCITY_RESET_YOUNGSTER
-
+	dw_const PewterCityPlayerMovingDownScript,			  SCRIPT_PEWTERCITY_PLAYER_MOVING_DOWN
+	
 PewterCityDefaultScript:
+	call PewterCityPokecenterScript
 	xor a
 	ld [wMuseum1FCurScript], a
 	ResetEvent EVENT_BOUGHT_MUSEUM_TICKET
 	call PewterCityCheckPlayerLeavingEastScript
+	ret
+
+PewterCityPlayerMovingDownScript:
+	ld a, [wSimulatedJoypadStatesIndex]
+	and a
+	ret nz
+	call Delay3
+	ld a, SCRIPT_PEWTERCITY_DEFAULT
+	ld [wPewterCityCurScript], a
+	ret
+
+PewterCityMovePlayerDownScript:
+	call StartSimulatingJoypadStates
+	ld a, $1
+	ld [wSimulatedJoypadStatesIndex], a
+	ld a, D_DOWN
+	ld [wSimulatedJoypadStatesEnd], a
+	xor a
+	ld [wSpritePlayerStateData1FacingDirection], a
+	ld [wJoyIgnore], a
+	ret
+
+PewterCityPokecenterScript:
+	ld a, [wYCoord]
+	cp 26
+	ret nz
+	ld a, [wXCoord]
+	cp 13
+	ret nz
+	ld a, TEXT_PEWTERCITY_POKECENTER_LOCKED
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	xor a
+	ldh [hJoyHeld], a
+	call PewterCityMovePlayerDownScript
+	ld a, SCRIPT_PEWTERCITY_PLAYER_MOVING_DOWN
+	ld [wPewterCityCurScript], a
 	ret
 
 PewterCityCheckPlayerLeavingEastScript:
@@ -197,6 +236,7 @@ PewterCity_TextPointers:
 	dw_const PewterCitySignText,                   TEXT_PEWTERCITY_SIGN
 	dw_const PewterCitySuperNerd1ItsRightHereText, TEXT_PEWTERCITY_SUPER_NERD1_ITS_RIGHT_HERE
 	dw_const PewterCityYoungsterGoTakeOnBrockText, TEXT_PEWTERCITY_YOUNGSTER_GO_TAKE_ON_BROCK
+	dw_const PewterCityPokecenterLockedText,       TEXT_PEWTERCITY_POKECENTER_LOCKED
 
 PewterCityCooltrainerFText:
 	text_far _PewterCityCooltrainerFText
@@ -304,4 +344,8 @@ PewterCityGymSignText:
 
 PewterCitySignText:
 	text_far _PewterCitySignText
+	text_end
+	
+PewterCityPokecenterLockedText:
+	text_far _PokecenterLockedText
 	text_end
