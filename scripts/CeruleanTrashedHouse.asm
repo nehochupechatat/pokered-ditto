@@ -10,9 +10,7 @@ CeruleanTrashedHouse_TextPointers:
 
 CeruleanTrashedHouseFishingGuruText:
 	text_asm
-	ld b, TM_DIG
-	predef GetQuantityOfItemInBag
-	and b
+	CheckEvent EVENT_BEAT_CERULEAN_ROCKET_THIEF
 	jr z, .no_dig_tm
 	ld hl, .WhatsLostIsLostText
 	call PrintText

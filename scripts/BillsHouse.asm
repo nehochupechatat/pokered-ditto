@@ -130,21 +130,8 @@ BillsHouseBillPokemonText:
 	text_asm
 	ld hl, .ImNotAPokemonText
 	call PrintText
-	call YesNoChoice
-	ld a, [wCurrentMenuItem]
-	and a
-	jr nz, .answered_no
-.use_machine
-	ld hl, .UseSeparationSystemText
-	call PrintText
 	ld a, SCRIPT_BILLSHOUSE_POKEMON_WALK_TO_MACHINE
 	ld [wBillsHouseCurScript], a
-	jr .text_script_end
-.answered_no
-	ld hl, .NoYouGottaHelpText
-	call PrintText
-	jr .use_machine
-.text_script_end
 	jp TextScriptEnd
 
 .ImNotAPokemonText:

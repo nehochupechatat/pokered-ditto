@@ -343,8 +343,11 @@ CeruleanCityRocketText:
 	ld [wCeruleanCityCurScript], a
 	jp TextScriptEnd
 .beatRocketThief
+	ld a, $1
+	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
 	ld hl, .IllReturnTheTMText
 	call PrintText
+	farcall CeruleanHideRocket
 	jp TextScriptEnd
 
 .Text:
