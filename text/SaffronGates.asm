@@ -1,18 +1,14 @@
 _SaffronGateGuardGeeImThirstyText::
-	text "I'm on guard duty."
-	line "Gee, I'm thirsty,"
-	cont "though!"
-
-	para "Oh wait there,"
-	line "the road's closed."
+	text "Zzzzz..zz."
+	line "...zzzz..."
 	done
 
 _SaffronGateGuardImParchedText::
 	text "Whoa, boy!"
-	line "I'm parched!"
+	line "I fell asleep"
 	cont "..."
 	cont "Huh? I can have"
-	cont "this drink?"
+	cont "this COFFEE?"
 	cont "Gee, thanks!@"
 	text_end
 
@@ -34,5 +30,5 @@ _SaffronGateGuardYouCanGoOnThroughText::
 
 _SaffronGateGuardThanksForTheDrinkText::
 	text "Hi, thanks for"
-	line "the cool drinks!"
+	line "the caffeine!"
 	done

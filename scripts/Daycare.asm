@@ -7,56 +7,7 @@ Daycare_TextPointers:
 
 DaycareGentlemanText:
 	text_asm
-	call SaveScreenTilesToBuffer2
-	ld a, [wDayCareInUse]
-	and a
-	jp nz, .daycareInUse
 	ld hl, .IntroText
-	call PrintText
-	call YesNoChoice
-	ld a, [wCurrentMenuItem]
-	and a
-	ld hl, .ComeAgainText
-	jp nz, .done
-	ld a, [wPartyCount]
-	dec a
-	ld hl, .OnlyHaveOneMonText
-	jp z, .done
-	ld hl, .WhichMonText
-	call PrintText
-	xor a
-	ld [wUpdateSpritesEnabled], a
-	ld [wPartyMenuTypeOrMessageID], a
-	ld [wMenuItemToSwap], a
-	call DisplayPartyMenu
-	push af
-	call GBPalWhiteOutWithDelay3
-	call RestoreScreenTilesAndReloadTilePatterns
-	call LoadGBPal
-	pop af
-	ld hl, .AllRightThenText
-	jp c, .done
-	callfar KnowsHMMove
-	ld hl, .CantAcceptMonWithHMText
-	jp c, .done
-	xor a
-	ld [wPartyAndBillsPCSavedMenuItem], a
-	ld a, [wWhichPokemon]
-	ld hl, wPartyMonNicks
-	call GetPartyMonName
-	ld hl, .WillLookAfterMonText
-	call PrintText
-	ld a, 1
-	ld [wDayCareInUse], a
-	ld a, PARTY_TO_DAYCARE
-	ld [wMoveMonType], a
-	call MoveMon
-	xor a
-	ld [wRemoveMonFromBox], a
-	call RemovePokemon
-	ld a, [wcf91]
-	call PlayCry
-	ld hl, .ComeSeeMeInAWhileText
 	jp .done
 
 .daycareInUse

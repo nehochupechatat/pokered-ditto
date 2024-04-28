@@ -1,8 +1,13 @@
 _DaycareGentlemanIntroText::
-	text "I run a DAYCARE."
-	line "Would you like me"
-	cont "to raise one of"
-	cont "your #MON?"
+	text "Oh wow! A #MON"
+	line "that can turn to"
+	cont "anything?"
+	para "I wonder if it"
+	line "can breed and"
+	cont "make the perfect"
+	cont "EGGs, just like"
+	cont "how the TRAINERs"
+	cont "want it?"
 	done
 
 _DaycareGentlemanWhichMonText::
