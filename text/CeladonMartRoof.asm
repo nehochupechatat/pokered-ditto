@@ -4,11 +4,12 @@ _CeladonMartRoofLittleGirlGiveHerWhichDrinkText::
 	done
 
 _CeladonMartRoofLittleGirlYayFreshWaterText::
-	text "Yay!"
+	text "The guards"
+	line "are asleep?"
 
-	para "FRESH WATER!"
-
-	para "Thank you!"
+	para "Luckily I've"
+	line "had this spare"
+	cont "COFFEE."
 
 	para "You can have this"
 	line "from me!@"
@@ -24,13 +25,10 @@ _CeladonMartRoofLittleGirlReceivedTM13Text::
 _CeladonMartRoofLittleGirlTM13ExplanationText::
 	text_start
 
-	para "@"
-	text_ram wStringBuffer
-	text " contains"
-	line "ICE BEAM!"
-
-	para "It can freeze the"
-	line "target sometimes!@"
+	para "COFFEE will help"
+	line "the overworked"
+	cont "guards stay"
+	cont "awake!@"
 	text_end
 
 _CeladonMartRoofLittleGirlYaySodaPopText::
@@ -92,9 +90,9 @@ _CeladonMartRoofLittleGirlNoRoomText::
 	text_end
 
 _CeladonMartRoofLittleGirlImNotThirstyText::
-	text "No thank you!"
-	line "I'm not thirsty"
-	cont "after all!@"
+	text "Has the COFFEE"
+	line "helped wake"
+	cont "the guards?@"
 	text_end
 
 _CeladonMartRoofSuperNerdText::
@@ -108,9 +106,8 @@ _CeladonMartRoofSuperNerdText::
 	done
 
 _CeladonMartRoofLittleGirlImThirstyText::
-	text "I'm thirsty!"
-	line "I want something"
-	cont "to drink!"
+	text "Can't use this"
+	line "machine!"
 	done
 
 _CeladonMartRoofLittleGirlGiveHerADrinkText::
