@@ -37,8 +37,10 @@ VermilionCity_ScriptPointers:
 	dw_const VermilionCityPlayerExitShipScript,      SCRIPT_VERMILIONCITY_PLAYER_EXIT_SHIP
 	dw_const VermilionCityPlayerMovingUp2Script,     SCRIPT_VERMILIONCITY_PLAYER_MOVING_UP2
 	dw_const VermilionCityPlayerAllowedToPassScript, SCRIPT_VERMILIONCITY_PLAYER_ALLOWED_TO_PASS
-
+	dw_const VermilionCityPlayerMovingDownScript,   SCRIPT_VERMILIONCITY_PLAYER_MOVING_DOWN
+	
 VermilionCityDefaultScript:
+	call VermilionCityPokecenterScript
 	ld a, [wSpritePlayerStateData1FacingDirection]
 	and a ; cp SPRITE_FACING_DOWN
 	ret nz
@@ -114,6 +116,43 @@ VermilionCityPlayerMovingUp1Script:
 	ld [wVermilionCityCurScript], a
 	ret
 
+VermilionCityPokecenterScript:
+	ld a, [wYCoord]
+	cp 4
+	ret nz
+	ld a, [wXCoord]
+	cp 11
+	ret nz
+	ld a, TEXT_VERMILIONCITY_POKECENTER_LOCKED
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	xor a
+	ldh [hJoyHeld], a
+	call VermilionCityMovePlayerDownScript
+	ld a, SCRIPT_VERMILIONCITY_PLAYER_MOVING_DOWN
+	ld [wVermilionCityCurScript], a
+	ret
+
+VermilionCityPlayerMovingDownScript:
+	ld a, [wSimulatedJoypadStatesIndex]
+	and a
+	ret nz
+	call Delay3
+	ld a, SCRIPT_VERMILIONCITY_DEFAULT
+	ld [wVermilionCityCurScript], a
+	ret
+
+VermilionCityMovePlayerDownScript:
+	call StartSimulatingJoypadStates
+	ld a, $1
+	ld [wSimulatedJoypadStatesIndex], a
+	ld a, D_DOWN
+	ld [wSimulatedJoypadStatesEnd], a
+	xor a
+	ld [wSpritePlayerStateData1FacingDirection], a
+	ld [wJoyIgnore], a
+	ret
+
 VermilionCity_TextPointers:
 	def_text_pointers
 	dw_const VermilionCityBeautyText,             TEXT_VERMILIONCITY_BEAUTY
@@ -129,7 +168,7 @@ VermilionCity_TextPointers:
 	dw_const VermilionCityPokemonFanClubSignText, TEXT_VERMILIONCITY_POKEMON_FAN_CLUB_SIGN
 	dw_const VermilionCityGymSignText,            TEXT_VERMILIONCITY_GYM_SIGN
 	dw_const VermilionCityHarborSignText,         TEXT_VERMILIONCITY_HARBOR_SIGN
-
+	dw_const VermilionCityPokecenterLockedText,  TEXT_VERMILIONCITY_POKECENTER_LOCKED
 VermilionCityBeautyText:
 	text_far _VermilionCityBeautyText
 	text_end
@@ -256,4 +295,8 @@ VermilionCityGymSignText:
 
 VermilionCityHarborSignText:
 	text_far _VermilionCityHarborSignText
+	text_end
+
+VermilionCityPokecenterLockedText:
+	text_far _PokecenterLockedText
 	text_end

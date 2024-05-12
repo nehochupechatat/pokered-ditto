@@ -5,12 +5,17 @@ _VermilionCityBeautyText::
 	para "We've heard GRIMER"
 	line "multiplies in"
 	cont "toxic sludge!"
+	
+	para "Like this one"
+	line "over here!"
+	
+	para "See what I mean?"
 	done
 
 _VermilionCityGambler1DidYouSeeText::
-	text "Did you see S.S."
-	line "ANNE moored in"
-	cont "the harbor?"
+	text "The S.S. ANNE "
+	line "is moored in"
+	cont "the harbor!"
 	done
 
 _VermilionCityGambler1SSAnneDepartedText::
@@ -30,27 +35,30 @@ _VermilionCitySailor1DoYouHaveATicketText::
 	text "Welcome to S.S."
 	line "ANNE!"
 
-	para "Excuse me, do you"
-	line "have a ticket?"
+	para "Excuse me, is your"
+	line "owner going here?"
 	prompt
 
 _VermilionCitySailor1FlashedTicketText::
 	text "<PLAYER> flashed"
 	line "the S.S.TICKET!"
 
-	para "Great! Welcome to"
-	line "S.S.ANNE!"
+	para "Great! Hope you"
+	line "find your owner!"
 	done
 
 _VermilionCitySailor1YouNeedATicketText::
-	text "<PLAYER> doesn't"
+	text "DITTO doesn't"
 	line "have the needed"
 	cont "S.S.TICKET."
 
 	para "Sorry!"
 
-	para "You need a ticket"
-	line "to get aboard."
+	para "It seems you're"
+	line "just a stray"
+	cont "#MON!"
+	para "Stray #MON"
+    line "aren't allowed!"
 	done
 
 _VermilionCitySailor1ShipSetSailText::
@@ -64,6 +72,10 @@ _VermilionCityGambler2Text::
 
 	para "My #MON is"
 	line "tamping the land."
+	
+	para "And now this slime"
+	line "bastard is ruining"
+	cont "my efforts..."
 	done
 
 _VermilionCityMachopText::

@@ -6,8 +6,11 @@ VermilionTradeHouse_TextPointers:
 	dw_const VermilionTradeHouseLittleGirlText, TEXT_VERMILIONTRADEHOUSE_LITTLE_GIRL
 
 VermilionTradeHouseLittleGirlText:
-	text_asm
-	ld a, TRADE_FOR_DUX
-	ld [wWhichTrade], a
-	predef DoInGameTradeDialogue
-	jp TextScriptEnd
+	text "What? What do"
+	line "you want from me?"
+	
+	para "..I knew I should"
+	line "have locked the"
+	cont "doors."
+	done
+	text_end

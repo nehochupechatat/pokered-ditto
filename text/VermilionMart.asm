@@ -8,11 +8,12 @@ _VermilionMartCooltrainerMText::
 	line "traffics in rare"
 	cont "#MON."
 
-	para "They also abandon"
-	line "#MON that they"
-	cont "consider not to"
-	cont "be popular or"
-	cont "useful."
+	para "They also do"
+	line "highly unethical"
+	cont "experiments with"
+	cont "them."
+	para "I see you're a"
+	line "product of one."
 	done
 
 _VermilionMartCooltrainerFText::

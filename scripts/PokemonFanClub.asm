@@ -96,38 +96,8 @@ PokemonFanClubSeelText:
 
 PokemonFanClubChairmanText:
 	text_asm
-	call PokemonFanClub_CheckBikeInBag
-	jr nz, .nothingleft
-
-	ld hl, .IntroText
-	call PrintText
-	call YesNoChoice
-	ld a, [wCurrentMenuItem]
-	and a
-	jr nz, .nothanks
-
-	; tell the story
 	ld hl, .StoryText
 	call PrintText
-	lb bc, BIKE_VOUCHER, 1
-	call GiveItem
-	jr nc, .bag_full
-	ld hl, .BikeVoucherText
-	call PrintText
-	SetEvent EVENT_GOT_BIKE_VOUCHER
-	jr .done
-.bag_full
-	ld hl, .BagFullText
-	call PrintText
-	jr .done
-.nothanks
-	ld hl, .NoStoryText
-	call PrintText
-	jr .done
-.nothingleft
-	ld hl, .FinalText
-	call PrintText
-.done
 	jp TextScriptEnd
 
 .IntroText:

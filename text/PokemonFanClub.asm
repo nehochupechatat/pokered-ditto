@@ -53,10 +53,7 @@ _PokemonFanClubChairmanIntroText::
 	done
 
 _PokemonFanClubChairmanStoryText::
-	text "Good!"
-	line "Then listen up!"
-
-	para "My favorite"
+	text "My favorite"
 	line "RAPIDASH..."
 
 	para "It...cute..."
@@ -73,14 +70,12 @@ _PokemonFanClubChairmanStoryText::
 	cont "and cuddly..."
 	cont "spectacular..."
 	cont "ravishing..."
-	cont "...Oops! Look at"
-	cont "the time! I kept"
-	cont "you too long!"
 
-	para "Thanks for hearing"
-	line "me out! I want"
-	cont "you to have this!"
-	prompt
+	para "..Huh? What's"
+	line "this #MON?"
+	para "Let me take a"
+	line "picture!"
+	done
 
 _PokemonFanClubReceivedBikeVoucherText::
 	text "<PLAYER> received"

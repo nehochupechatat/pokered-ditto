@@ -2,6 +2,10 @@ _Route6CooltrainerM1BattleText::
 	text "Who's there?"
 	line "Quit listening in"
 	cont "on us!"
+	para "Oh, it's just a"
+	line "wild #MON!?"
+	para "Shoo! Outta my"
+	line "way!"
 	done
 
 _Route6CooltrainerM1EndBattleText::
@@ -28,6 +32,8 @@ _Route6CooltrainerF1EndBattleText::
 _Route6Youngster1BattleText::
 	text "There aren't many"
 	line "bugs out here."
+	para "But maybe you"
+	line "will do?"
 	done
 
 _Route6Youngster1EndBattleText::
@@ -43,7 +49,9 @@ _Route6Youngster1AfterBattleText::
 
 _Route6CooltrainerM2BattleText::
 	text "Huh? You want"
-	line "to talk to me?"
+	line "treats from me?"
+	para "...Well, I don't"
+	line "have any! Get out!"
 	done
 
 _Route6CooltrainerM2EndBattleText::
@@ -58,8 +66,8 @@ _Route6CooltrainerM2AfterBattleText::
 	done
 
 _Route6CooltrainerF2BattleText::
-	text "Me? Well, OK."
-	line "I'll play!"
+	text "Let me see this"
+	line "new #MON!"
 	done
 
 _Route6CooltrainerF2EndBattleText::
@@ -69,19 +77,23 @@ _Route6CooltrainerF2EndBattleText::
 
 _Route6CooltrainerF2AfterBattleText::
 	text "I want to get"
-	line "stronger! What's"
-	cont "your secret?"
+	line "stronger!"
+	para "I can't believe"
+	line "I lost to some"
+	cont "wild #MON!"
 	done
 
 _Route6Youngster2BattleText::
 	text "I've never seen"
-	line "you around!"
-	cont "Are you good?"
+	line "it around!"
+	para "My friends will"
+	line "be so jealous"
+	cont "when I catch it!"
 	done
 
 _Route6Youngster2EndBattleText::
 	text "You"
-	line "are too good!"
+	line "are too strong!"
 	prompt
 
 _Route6Youngster2AfterBattleText::

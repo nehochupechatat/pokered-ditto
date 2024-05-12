@@ -35,8 +35,17 @@ _VermilionOldRodHouseFishingGuruFishingIsAWayOfLifeText::
 	done
 
 _VermilionOldRodHouseFishingGuruThatsSoDisappointingText::
-	text "Oh... That's so"
+	text "I'm the FISHING"
+	line "GURU!"
+
+	para "I simply Looove"
+	line "fishing!"
+
+	para "Oh... That's so"
 	line "disappointing..."
+	
+	para "It's just a stray"
+	line "#MON..."
 	done
 
 _VermilionOldRodHouseFishingGuruHowAreTheFishBitingText::
