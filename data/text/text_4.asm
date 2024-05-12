@@ -30,10 +30,8 @@ _PokemartBuyingGreetingText::
 _PokemartTellBuyPriceText::
 	text_ram wStringBuffer
 	text "?"
-	line "That will be"
-	cont "¥@"
-	text_bcd hMoney, 3 | LEADING_ZEROES | LEFT_ALIGN
-	text ". OK?"
+	line "Is that what"
+	cont "you want?"
 	done
 
 _PokemartBoughtItemText::
@@ -53,7 +51,7 @@ _PokemartItemBagFullText::
 
 _PokemonSellingGreetingText::
 	text "What would you"
-	line "like to sell?"
+	line "like to give?"
 	done
 
 _PokemartTellSellPriceText::
@@ -65,12 +63,12 @@ _PokemartTellSellPriceText::
 
 _PokemartItemBagEmptyText::
 	text "You don't have"
-	line "anything to sell."
+	line "anything to give."
 	prompt
 
 _PokemartUnsellableItemText::
-	text "I can't put a"
-	line "price on that."
+	text "I think you should"
+	line "keep this."
 	prompt
 
 _PokemartThankYouText::

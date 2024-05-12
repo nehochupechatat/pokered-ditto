@@ -289,12 +289,6 @@ DisplayChooseQuantityMenu::
 	ldh a, [hDivideBCDQuotient + 2]
 	ldh [hMoney + 2], a
 .skipHalvingPrice
-	hlcoord 12, 10
-	ld de, SpacesBetweenQuantityAndPriceText
-	call PlaceString
-	ld de, hMoney ; total price
-	ld c, $a3
-	call PrintBCDNumber
 	hlcoord 9, 10
 .printQuantity
 	ld de, wItemQuantity ; current quantity
@@ -409,17 +403,6 @@ PrintListMenuEntries::
 	ld a, [wPrintItemPrices]
 	and a ; should prices be printed?
 	jr z, .skipPrintingItemPrice
-.printItemPrice
-	push hl
-	ld a, [de]
-	ld de, ItemPrices
-	ld [wcf91], a
-	call GetItemPrice ; get price
-	pop hl
-	ld bc, SCREEN_WIDTH + 5 ; 1 row down and 5 columns right
-	add hl, bc
-	ld c, $a3 ; no leading zeroes, right-aligned, print currency symbol, 3 bytes
-	call PrintBCDNumber
 .skipPrintingItemPrice
 	ld a, [wListMenuID]
 	and a ; PCPOKEMONLISTMENU?
